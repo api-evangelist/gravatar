@@ -1,0 +1,47 @@
+plans:
+  - name: Free
+    description: >-
+      Free tier for developers, startups, open-source projects, and organizations.
+      Includes access to all developer tools with basic attribution required.
+      Generous default rate limits for authenticated requests. Requires telling
+      users you are using Gravatar with a link in your product or documentation.
+    url: https://docs.gravatar.com/general/pricing/
+    price: 0
+    priceCurrency: USD
+    pricePer: month
+    features:
+      - All developer tools access
+      - REST API (v3) access
+      - Avatar CDN access
+      - Mobile SDKs (Android and iOS)
+      - Community support
+      - API key authentication
+      - OAuth2 authentication
+      - Basic attribution required
+      - Commercial use permitted
+    rateLimit:
+      unauthenticated: 100 requests/hour
+      authenticated: 1000 requests/hour
+      avatarRequests: unlimited (not counted)
+  - name: Paid
+    description: >-
+      Paid tier starting at $100/month for organizations needing dedicated support,
+      increased rate limits, and SLA guarantees. Includes negotiable attribution,
+      private Slack channel, early beta access, integration assistance, and
+      enhanced bulk data operation capabilities.
+    url: https://docs.gravatar.com/general/pricing/
+    price: 100
+    priceCurrency: USD
+    pricePer: month
+    features:
+      - All developer tools access
+      - Increased and custom rate limits
+      - 99.95% monthly uptime SLA
+      - Dedicated support
+      - Private Slack channel access
+      - Early access to beta features
+      - Negotiable attribution requirements
+      - Integration assistance
+      - Consultation and development services
+      - Enhanced bulk data operations
+      - Commercial use permitted

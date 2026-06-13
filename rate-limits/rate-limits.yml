@@ -1,0 +1,39 @@
+rateLimits:
+  - name: Unauthenticated Requests
+    description: >-
+      Rate limit applied to REST API requests made without an API key.
+      Limited to 100 requests per hour per IP address. Avatar CDN requests
+      do not count toward this limit.
+    requests: 100
+    period: hour
+    authenticated: false
+    scope: IP address
+  - name: Authenticated Requests
+    description: >-
+      Rate limit applied to REST API requests made with a valid API key
+      (Bearer token) in the Authorization header. Provides 1,000 requests
+      per hour. Avatar CDN requests do not count toward this limit.
+      Higher limits available at no extra charge by contacting Gravatar.
+    requests: 1000
+    period: hour
+    authenticated: true
+    scope: API key
+  - name: Avatar CDN Requests
+    description: >-
+      Requests to the Gravatar avatar CDN (0.gravatar.com/avatar/{hash})
+      are unlimited and do not count toward REST API rate limits.
+      No authentication required for basic avatar fetching.
+    requests: unlimited
+    period: N/A
+    authenticated: false
+    scope: global
+headers:
+  - name: X-RateLimit-Limit
+    description: The maximum number of requests allowed per hour for the current authentication tier.
+  - name: X-RateLimit-Remaining
+    description: The number of requests remaining in the current rate limit window.
+  - name: X-RateLimit-Reset
+    description: Unix timestamp indicating when the rate limit window resets.
+errorCode:
+  - code: 429
+    description: Too Many Requests — rate limit exceeded. Wait until the X-RateLimit-Reset time before retrying.

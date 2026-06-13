@@ -1,0 +1,40 @@
+finops:
+  summary: >-
+    Gravatar operates a freemium model with a free developer tier and a paid
+    enterprise tier. The free tier includes all core API capabilities with
+    a 1,000 authenticated requests/hour rate limit and basic attribution
+    requirements. The paid tier starts at $100/month and adds SLA guarantees,
+    dedicated support, increased rate limits, and negotiable attribution.
+    Avatar CDN requests are unlimited and free on all tiers.
+  url: https://docs.gravatar.com/general/pricing/
+  tiers:
+    - name: Free
+      monthlyMinimum: 0
+      monthlyMaximum: 0
+      currency: USD
+      notes: >-
+        No cost. Requires attribution (telling users you use Gravatar with a link).
+        Higher rate limits available at no extra charge by contacting Gravatar.
+    - name: Paid
+      monthlyMinimum: 100
+      monthlyMaximum: null
+      currency: USD
+      notes: >-
+        Starts at $100/month. Exact pricing depends on usage, custom rate limit
+        needs, and required SLA. Contact Gravatar sales for a custom quote.
+  costDrivers:
+    - name: REST API Authenticated Calls
+      description: Up to 1,000/hour on free tier; negotiable on paid tier.
+      freeAllowance: 1000 requests/hour
+    - name: REST API Unauthenticated Calls
+      description: Up to 100/hour without an API key.
+      freeAllowance: 100 requests/hour
+    - name: Avatar CDN Requests
+      description: Unlimited avatar image fetches; not metered or billed.
+      freeAllowance: unlimited
+  optimizationTips:
+    - Use authenticated requests (API key) to get 10x the rate limit headroom (1,000 vs 100/hour).
+    - Serve avatars directly from the Gravatar CDN; these requests are free and unlimited.
+    - Cache profile responses to reduce API calls and stay within free tier limits.
+    - Contact Gravatar to request higher rate limits at no extra charge before upgrading to paid.
+    - Use the SHA256 email hash locally to construct avatar URLs without any API call.
