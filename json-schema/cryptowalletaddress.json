@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/cryptowalletaddress.json",
+  "title": "CryptoWalletAddress",
+  "type": "object",
+  "description": "A crypto currency wallet address the user accepts.",
+  "required": [
+    "label",
+    "address"
+  ],
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "The label for the crypto currency.",
+      "examples": [
+        "ETH"
+      ]
+    },
+    "address": {
+      "type": "string",
+      "description": "The wallet address for the crypto currency.",
+      "examples": [
+        "0xABC123..."
+      ]
+    }
+  }
+}

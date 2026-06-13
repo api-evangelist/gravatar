@@ -1,0 +1,21 @@
+{
+  "operationId": "getProfileById",
+  "path": "/profiles/{profileIdentifier}",
+  "method": "GET",
+  "summary": "Get profile by identifier",
+  "description": "Returns a profile by the given identifier.",
+  "tags": [
+    "profiles"
+  ],
+  "parameters": [
+    {
+      "name": "profileIdentifier",
+      "in": "path",
+      "required": true,
+      "description": "This can either be an SHA256 hash of an email address or profile URL slug.",
+      "schema": {
+        "type": "string"
+      }
+    }
+  ]
+}

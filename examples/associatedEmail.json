@@ -1,0 +1,21 @@
+{
+  "operationId": "associatedEmail",
+  "path": "/me/associated-email",
+  "method": "GET",
+  "summary": "Check if the email is associated with the authenticated user",
+  "description": "Checks if the provided email address is associated with the authenticated user.",
+  "tags": [
+    "profiles"
+  ],
+  "parameters": [
+    {
+      "name": "email_hash",
+      "in": "query",
+      "required": true,
+      "description": "The hash of the email address to check.",
+      "schema": {
+        "type": "string"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/link.json",
+  "title": "Link",
+  "type": "object",
+  "description": "A link the user has added to their profile.",
+  "required": [
+    "label",
+    "url"
+  ],
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "The label for the link.",
+      "examples": [
+        "Personal Website"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL to the link.",
+      "examples": [
+        "https://example.com"
+      ]
+    }
+  }
+}

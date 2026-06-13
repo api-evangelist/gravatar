@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/rating.json",
+  "title": "Rating",
+  "type": "string",
+  "description": "Rating associated with the image.",
+  "enum": [
+    "G",
+    "PG",
+    "R",
+    "X"
+  ]
+}

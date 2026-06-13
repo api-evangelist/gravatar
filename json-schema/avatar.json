@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/avatar.json",
+  "title": "Avatar",
+  "type": "object",
+  "description": "An avatar that the user has already uploaded to their Gravatar account.",
+  "required": [
+    "image_id",
+    "image_url",
+    "rating",
+    "updated_date",
+    "alt_text"
+  ],
+  "properties": {
+    "image_id": {
+      "type": "string",
+      "description": "Unique identifier for the image.",
+      "examples": [
+        "38be15a98a2bbc40df69172a2a8349"
+      ]
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Image URL",
+      "format": "uri",
+      "examples": [
+        "https://gravatar.com/userimage/252014526/d38bele5a98a2bbc40df69172a2a8348.jpeg"
+      ]
+    },
+    "rating": {
+      "type": "string",
+      "description": "Rating associated with the image.",
+      "enum": [
+        "G",
+        "PG",
+        "R",
+        "X"
+      ]
+    },
+    "alt_text": {
+      "type": "string",
+      "description": "Alternative text description of the image.",
+      "examples": [
+        "Gravatar's avatar image. Gravatar is a service for providing globally unique avatars."
+      ]
+    },
+    "selected": {
+      "type": "boolean",
+      "description": "Whether the image is currently selected as the provided selected email's avatar.",
+      "examples": [
+        true
+      ]
+    },
+    "updated_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when the image was last updated.",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+      "examples": [
+        "2021-10-01T12:00:00Z"
+      ]
+    }
+  }
+}

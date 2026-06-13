@@ -1,0 +1,21 @@
+{
+  "operationId": "updateAvatar",
+  "path": "/me/avatars/{imageHash}",
+  "method": "PATCH",
+  "summary": "Update avatar data",
+  "description": "Updates the avatar data for a given avatar for the authenticated user.",
+  "tags": [
+    "avatars"
+  ],
+  "parameters": [
+    {
+      "name": "imageHash",
+      "in": "path",
+      "required": true,
+      "description": "The hash of the avatar to update.",
+      "schema": {
+        "type": "string"
+      }
+    }
+  ]
+}

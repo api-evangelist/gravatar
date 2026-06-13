@@ -1,0 +1,11 @@
+{
+  "operationId": "getVerifiedAccountServices",
+  "path": "/verified-accounts/services",
+  "method": "GET",
+  "summary": "Get list of services supported as verified accounts",
+  "description": "Returns the list of verified account services with their ID and human-readable labels.",
+  "tags": [
+    "experimental"
+  ],
+  "parameters": []
+}

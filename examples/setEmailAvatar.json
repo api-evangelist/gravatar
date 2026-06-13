@@ -1,0 +1,21 @@
+{
+  "operationId": "setEmailAvatar",
+  "path": "/me/avatars/{imageId}/email",
+  "method": "POST",
+  "summary": "Set avatar for the hashed email",
+  "description": "Sets the avatar for the provided email hash.",
+  "tags": [
+    "avatars"
+  ],
+  "parameters": [
+    {
+      "name": "imageId",
+      "in": "path",
+      "description": "Image ID of the avatar to set as the provided hashed email avatar.",
+      "required": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ]
+}

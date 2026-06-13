@@ -1,0 +1,149 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "gravatar": "https://gravatar.com/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Profile": {
+      "@id": "gravatar:Profile",
+      "@type": "@id"
+    },
+    "Avatar": {
+      "@id": "gravatar:Avatar",
+      "@type": "@id"
+    },
+    "VerifiedAccount": {
+      "@id": "gravatar:VerifiedAccount",
+      "@type": "@id"
+    },
+    "Interest": {
+      "@id": "gravatar:Interest",
+      "@type": "@id"
+    },
+    "CryptoWalletAddress": {
+      "@id": "gravatar:CryptoWalletAddress",
+      "@type": "@id"
+    },
+    "GalleryImage": {
+      "@id": "gravatar:GalleryImage",
+      "@type": "@id"
+    },
+    "Link": {
+      "@id": "gravatar:Link",
+      "@type": "@id"
+    },
+    "Language": {
+      "@id": "gravatar:Language",
+      "@type": "@id"
+    },
+    "display_name": {
+      "@id": "schema:name"
+    },
+    "job_title": {
+      "@id": "schema:jobTitle"
+    },
+    "location": {
+      "@id": "schema:addressLocality"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "profile_url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "image_url": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "hash": {
+      "@id": "gravatar:sha256Hash"
+    },
+    "slug": {
+      "@id": "gravatar:slug"
+    },
+    "pronouns": {
+      "@id": "gravatar:pronouns"
+    },
+    "timezone": {
+      "@id": "schema:timezone"
+    },
+    "rating": {
+      "@id": "gravatar:rating"
+    },
+    "last_profile_edit": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "registration_date": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "verified_accounts": {
+      "@id": "gravatar:verifiedAccounts",
+      "@container": "@set"
+    },
+    "links": {
+      "@id": "schema:sameAs",
+      "@container": "@set"
+    },
+    "interests": {
+      "@id": "gravatar:interests",
+      "@container": "@set"
+    },
+    "gallery": {
+      "@id": "gravatar:gallery",
+      "@container": "@set"
+    },
+    "crypto_wallet_addresses": {
+      "@id": "gravatar:cryptoWalletAddresses",
+      "@container": "@set"
+    },
+    "service_type": {
+      "@id": "gravatar:serviceType"
+    },
+    "service_label": {
+      "@id": "schema:name"
+    },
+    "service_icon": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "label": {
+      "@id": "schema:name"
+    },
+    "alt_text": {
+      "@id": "schema:description"
+    },
+    "currency_type": {
+      "@id": "gravatar:currencyType"
+    },
+    "wallet_address": {
+      "@id": "gravatar:walletAddress"
+    },
+    "image_id": {
+      "@id": "gravatar:imageId"
+    },
+    "selected": {
+      "@id": "gravatar:selected",
+      "@type": "xsd:boolean"
+    },
+    "updated_date": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "code": {
+      "@id": "schema:identifier"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "id": {
+      "@id": "schema:identifier"
+    }
+  }
+}

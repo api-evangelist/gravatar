@@ -1,0 +1,66 @@
+{
+  "operationId": "getQrCodeBySha256Hash",
+  "path": "/qr-code/{sha256_hash}",
+  "method": "GET",
+  "summary": "Get QR code for an email address' profile",
+  "description": "Returns a QR code for an email address by the given SHA256 hash.",
+  "tags": [
+    "qr-code"
+  ],
+  "parameters": [
+    {
+      "name": "sha256_hash",
+      "in": "path",
+      "required": true,
+      "description": "The SHA256 hash of the email address or profile URL slug.",
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "size",
+      "in": "query",
+      "required": false,
+      "description": "The size of the QR code.",
+      "schema": {
+        "type": "integer"
+      }
+    },
+    {
+      "name": "version",
+      "in": "query",
+      "required": false,
+      "description": "The version of the QR code.",
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "utm_medium",
+      "in": "query",
+      "required": false,
+      "description": "The medium of the UTM parameters. Appended to the URL in the QR code.",
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "utm_campaign",
+      "in": "query",
+      "required": false,
+      "description": "The campaign of the UTM parameters. Appended to the URL in the QR code.",
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "type",
+      "in": "query",
+      "required": false,
+      "description": "The type of center icon to display ('user' for avatar, 'gravatar' for logo, 'none' for no icon).",
+      "schema": {
+        "type": "string"
+      }
+    }
+  ]
+}

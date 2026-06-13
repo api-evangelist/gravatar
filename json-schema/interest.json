@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/interest.json",
+  "title": "Interest",
+  "type": "object",
+  "description": "An interest the user has added to their profile.",
+  "required": [
+    "id",
+    "name",
+    "slug"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier for the interest.",
+      "examples": [
+        1
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the interest as originally defined (most often in English).",
+      "examples": [
+        "photography"
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "description": "The slug representing the interest by combining id and its normalized name.",
+      "examples": [
+        "1-photography"
+      ]
+    }
+  }
+}

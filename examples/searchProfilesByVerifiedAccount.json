@@ -1,0 +1,53 @@
+{
+  "operationId": "searchProfilesByVerifiedAccount",
+  "path": "/profiles/search/by-verified-account",
+  "method": "GET",
+  "summary": "Search for profiles by verified account username",
+  "description": "Searches Gravatar profiles that have a verified account with the given username. Optionally filter by the service (e.g., 'github', 'twitter'). See `/verified-accounts/services` for supported ID values. Results are paginated.",
+  "tags": [
+    "experimental"
+  ],
+  "parameters": [
+    {
+      "name": "username",
+      "in": "query",
+      "required": true,
+      "description": "The username used on the verified third-party service.",
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "service",
+      "in": "query",
+      "required": false,
+      "description": "The service to limit search to (e.g., 'github', 'twitter'). See `/verified-accounts/services` for supported IDs.",
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "description": "Page number of results to retrieve.",
+      "schema": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 1
+      }
+    },
+    {
+      "name": "per_page",
+      "in": "query",
+      "required": false,
+      "description": "Number of results per page. Defaults to 20, maximum 50.",
+      "schema": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 50,
+        "default": 20
+      }
+    }
+  ]
+}

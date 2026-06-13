@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/verifiedaccount.json",
+  "title": "VerifiedAccount",
+  "type": "object",
+  "description": "A verified account on a user's profile.",
+  "required": [
+    "service_type",
+    "service_label",
+    "service_icon",
+    "url",
+    "is_hidden"
+  ],
+  "properties": {
+    "service_type": {
+      "type": "string",
+      "description": "The type of the service.",
+      "examples": [
+        "tumblr"
+      ]
+    },
+    "service_label": {
+      "type": "string",
+      "description": "The name of the service.",
+      "examples": [
+        "Tumblr"
+      ]
+    },
+    "service_icon": {
+      "type": "string",
+      "description": "The URL to the service's icon.",
+      "format": "uri",
+      "examples": [
+        "https://gravatar.com/icons/tumblr-alt.svg"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "description": "The URL to the user's profile on the service.",
+      "format": "uri",
+      "examples": [
+        "https://example.tumblr.com/"
+      ]
+    },
+    "is_hidden": {
+      "type": "boolean",
+      "description": "Whether the verified account is hidden from the user's profile.",
+      "examples": [
+        false
+      ]
+    }
+  }
+}

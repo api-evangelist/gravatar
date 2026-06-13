@@ -1,0 +1,21 @@
+{
+  "operationId": "updateProfile",
+  "path": "/me/profile",
+  "method": "PATCH",
+  "summary": "Update profile information for the authenticated user",
+  "description": "Updates the profile information for the authenticated user. Only a subset of `Profile` fields are available for update. Partial updates are supported, so only the provided fields will be updated. To unset a field, set it explicitly to an empty string.",
+  "tags": [
+    "profiles"
+  ],
+  "parameters": [],
+  "responseExamples": {
+    "404": {
+      "disabled": {
+        "value": {
+          "error": "Profile is disabled",
+          "code": "disabled"
+        }
+      }
+    }
+  }
+}

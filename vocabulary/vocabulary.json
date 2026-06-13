@@ -1,0 +1,71 @@
+{
+  "name": "Gravatar API Vocabulary",
+  "description": "Key terms and concepts used in the Gravatar Public API",
+  "source": "https://api.gravatar.com/v3/openapi",
+  "terms": [
+    {
+      "term": "SHA256 Hash",
+      "definition": "A SHA256 hash of a lowercase, trimmed email address used to identify a Gravatar user. Used as the primary identifier for avatar and profile lookups."
+    },
+    {
+      "term": "Profile",
+      "definition": "A Gravatar user profile containing display name, location, job title, verified accounts, interests, links, and other identity information tied to an email address."
+    },
+    {
+      "term": "Avatar",
+      "definition": "A user-uploaded profile image associated with a Gravatar account. Avatars have ratings (G, PG, R, X) and can be set per email address."
+    },
+    {
+      "term": "Rating",
+      "definition": "A content rating applied to avatars and profiles. Values: G (suitable for all audiences), PG (parental guidance), R (restricted), X (adult content)."
+    },
+    {
+      "term": "VerifiedAccount",
+      "definition": "A third-party account (e.g., GitHub, Twitter/X, Mastodon) that a Gravatar user has verified ownership of, displayed on their public profile."
+    },
+    {
+      "term": "QR Code",
+      "definition": "A generated QR code image that links to a Gravatar profile, identified by SHA256 hash of the user's email address."
+    },
+    {
+      "term": "ProfileIdentifier",
+      "definition": "A value used to look up a Gravatar profile: either a SHA256 hash of the email address or a profile slug (username)."
+    },
+    {
+      "term": "Interest",
+      "definition": "A topic or hobby listed on a Gravatar profile, with an ID, name, and URL slug."
+    },
+    {
+      "term": "CryptoWalletAddress",
+      "definition": "A cryptocurrency wallet address listed on a Gravatar profile, enabling crypto donations (e.g., Bitcoin, Ethereum)."
+    },
+    {
+      "term": "GalleryImage",
+      "definition": "An image in the Gravatar gallery associated with a user profile, distinct from the currently selected avatar."
+    },
+    {
+      "term": "Link",
+      "definition": "An external URL listed on a Gravatar profile, such as a personal website or social media page."
+    },
+    {
+      "term": "Language",
+      "definition": "A language associated with a Gravatar profile, represented by code and name."
+    },
+    {
+      "term": "AssociatedResponse",
+      "definition": "The response object returned when associating an email address with an avatar."
+    },
+    {
+      "term": "Bearer Token",
+      "definition": "An API key used for authenticating requests to the Gravatar REST API, passed as a Bearer token in the Authorization header."
+    },
+    {
+      "term": "imageId",
+      "definition": "A unique identifier for a specific avatar image uploaded to Gravatar, used to manage and reference individual avatar images."
+    },
+    {
+      "term": "imageHash",
+      "definition": "A hash identifying a specific avatar image, used in avatar management endpoints."
+    }
+  ]
+}

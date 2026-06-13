@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/error.json",
+  "title": "Error",
+  "type": "object",
+  "description": "An error response from the API.",
+  "properties": {
+    "error": {
+      "type": "string",
+      "description": "The error message"
+    },
+    "code": {
+      "type": "string",
+      "description": "The error code for the error message"
+    }
+  },
+  "required": [
+    "error"
+  ]
+}

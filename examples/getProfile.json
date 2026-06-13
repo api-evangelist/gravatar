@@ -1,0 +1,21 @@
+{
+  "operationId": "getProfile",
+  "path": "/me/profile",
+  "method": "GET",
+  "summary": "Get profile information for the authenticated user",
+  "description": "Returns the information available for the authenticated user. It's equivalent to the full profile information available in the `/profiles/{profileIdentifier}` endpoint.",
+  "tags": [
+    "profiles"
+  ],
+  "parameters": [],
+  "responseExamples": {
+    "404": {
+      "disabled": {
+        "value": {
+          "error": "Profile is disabled",
+          "code": "disabled"
+        }
+      }
+    }
+  }
+}

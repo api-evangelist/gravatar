@@ -1,0 +1,21 @@
+{
+  "operationId": "getAvatars",
+  "path": "/me/avatars",
+  "method": "GET",
+  "summary": "List avatars",
+  "description": "Retrieves a list of available avatars for the authenticated user.",
+  "tags": [
+    "avatars"
+  ],
+  "parameters": [
+    {
+      "name": "selected_email_hash",
+      "in": "query",
+      "description": "The SHA256 hash of the email address used to determine which avatar is selected. The 'selected' attribute in the avatar list will be set to 'true' for the avatar associated with this email.",
+      "schema": {
+        "type": "string",
+        "default": ""
+      }
+    }
+  ]
+}

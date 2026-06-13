@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/language.json",
+  "title": "Language",
+  "type": "object",
+  "description": "The languages the user knows. This is only provided in authenticated API requests.",
+  "required": [
+    "code",
+    "name",
+    "is_primary",
+    "order"
+  ],
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "The language code.",
+      "examples": [
+        "en"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "The language name.",
+      "examples": [
+        "English"
+      ]
+    },
+    "is_primary": {
+      "type": "boolean",
+      "description": "Whether the language is the user's primary language.",
+      "examples": [
+        true
+      ]
+    },
+    "order": {
+      "type": "integer",
+      "description": "The order of the language in the user's profile.",
+      "examples": [
+        1
+      ]
+    }
+  }
+}

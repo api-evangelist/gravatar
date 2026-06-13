@@ -1,0 +1,21 @@
+{
+  "operationId": "deleteAvatar",
+  "path": "/me/avatars/{imageHash}",
+  "method": "DELETE",
+  "summary": "Delete avatar",
+  "description": "Deletes a specific avatar for the authenticated user.",
+  "tags": [
+    "avatars"
+  ],
+  "parameters": [
+    {
+      "name": "imageHash",
+      "in": "path",
+      "required": true,
+      "description": "The hash of the avatar to delete.",
+      "schema": {
+        "type": "string"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "operationId": "uploadAvatar",
+  "path": "/me/avatars",
+  "method": "POST",
+  "summary": "Upload new avatar image",
+  "description": "Uploads a new avatar image for the authenticated user.",
+  "tags": [
+    "avatars"
+  ],
+  "parameters": [
+    {
+      "name": "selected_email_hash",
+      "in": "query",
+      "description": "The SHA256 hash of email. If provided, the uploaded image will be selected as the avatar for this email.",
+      "required": false,
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "select_avatar",
+      "in": "query",
+      "description": "Determines if the uploaded image should be set as the avatar for the email. If not passed, the image is only selected as the email's avatar if no previous avatar has been set. Accepts '1'/'true' to always set the avatar or '0'/'false' to never set the avatar.",
+      "required": false,
+      "schema": {
+        "type": [
+          "boolean",
+          "null"
+        ],
+        "default": null
+      }
+    }
+  ],
+  "responseExamples": {
+    "400": {
+      "uncropped_image": {
+        "value": {
+          "error": "Only square images are accepted",
+          "code": "uncropped_image"
+        }
+      },
+      "unsupported_image": {
+        "value": {
+          "error": "Unsupported image type",
+          "code": "unsupported_image"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/json-schema/associatedresponse.json",
+  "title": "AssociatedResponse",
+  "type": "object",
+  "required": [
+    "associated"
+  ],
+  "properties": {
+    "associated": {
+      "type": "boolean",
+      "description": "Whether the entity is associated with the account.",
+      "examples": [
+        true
+      ]
+    }
+  }
+}
