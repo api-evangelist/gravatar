@@ -1,105 +1,103 @@
 aid: gravatar
 name: Gravatar
-description: >-
-  Gravatar (Globally Recognized Avatar) is a service that provides universally
+description: Gravatar (Globally Recognized Avatar) is a service that provides universally
   recognized avatars and rich identity profiles tied to email addresses via SHA256
-  hash. Developers can fetch user avatars, profile information, verified social
-  accounts, and identity data using a REST API with API key or OAuth authentication.
-  The service offers both a public avatar CDN (no auth required) and a REST API
-  (v3) for profiles, avatar management, QR codes, and verified account lookups.
+  hash. Developers can fetch user avatars, profile information, verified social accounts,
+  and identity data using a REST API with API key or OAuth authentication. The service
+  offers both a public avatar CDN (no auth required) and a REST API (v3) for profiles,
+  avatar management, QR codes, and verified account lookups.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/apis.yml
-created: "2026-06-13"
-modified: "2026-06-13"
-specificationVersion: "0.19"
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
 type: Index
 tags:
+- Avatars
+- Identity
+- Profiles
+- Social
+- Images
+- GraphQL
+- REST
+apis:
+- aid: gravatar:avatar-api
+  name: Gravatar Avatar API
+  description: Public CDN-based API for fetching user avatars by SHA256 email hash.
+    Supports image size customization, default image fallbacks, and content rating
+    filters. Avatar requests do not count against rate limits.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.gravatar.com/api/avatars/
+  baseURL: https://0.gravatar.com
+  tags:
+  - Avatars
+  - Images
+  - CDN
+  properties:
+  - type: Documentation
+    url: https://docs.gravatar.com/api/avatars/
+  - type: OpenAPI
+    url: https://api.gravatar.com/v3/openapi
+- aid: gravatar:rest-api
+  name: Gravatar REST API
+  description: REST API (v3) for retrieving and managing Gravatar user profiles, avatars,
+    QR codes, and verified account lookups by SHA256 email hash or profile slug. Supports
+    API key (Bearer token) and WordPress OAuth2 authentication. Unauthenticated requests
+    are limited to 100/hour; authenticated requests receive 1,000/hour.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.gravatar.com/rest-api/
+  baseURL: https://api.gravatar.com/v3
+  tags:
+  - Profiles
   - Avatars
   - Identity
-  - Profiles
-  - Social
-  - Images
-  - GraphQL
-  - REST
-apis:
-  - aid: gravatar:avatar-api
-    name: Gravatar Avatar API
-    description: >-
-      Public CDN-based API for fetching user avatars by SHA256 email hash.
-      Supports image size customization, default image fallbacks, and content
-      rating filters. Avatar requests do not count against rate limits.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.gravatar.com/api/avatars/
-    baseURL: https://0.gravatar.com
-    tags:
-      - Avatars
-      - Images
-      - CDN
-    properties:
-      - type: Documentation
-        url: https://docs.gravatar.com/api/avatars/
-      - type: OpenAPI
-        url: https://api.gravatar.com/v3/openapi
-  - aid: gravatar:rest-api
-    name: Gravatar REST API
-    description: >-
-      REST API (v3) for retrieving and managing Gravatar user profiles, avatars,
-      QR codes, and verified account lookups by SHA256 email hash or profile slug.
-      Supports API key (Bearer token) and WordPress OAuth2 authentication.
-      Unauthenticated requests are limited to 100/hour; authenticated requests
-      receive 1,000/hour.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.gravatar.com/rest-api/
-    baseURL: https://api.gravatar.com/v3
-    tags:
-      - Profiles
-      - Avatars
-      - Identity
-      - Verified Accounts
-      - QR Codes
-    properties:
-      - type: Documentation
-        url: https://docs.gravatar.com/rest-api/
-      - type: OpenAPI
-        url: https://api.gravatar.com/v3/openapi
-      - type: GettingStarted
-        url: https://docs.gravatar.com/rest/getting-started/
-      - type: Authentication
-        url: https://docs.gravatar.com/rest/getting-started/#authentication
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/rate-limits/rate-limits.yml
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/plans/plans.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/finops/finops.yml
-common:
-  - type: Portal
-    url: https://docs.gravatar.com/
+  - Verified Accounts
+  - QR Codes
+  properties:
   - type: Documentation
-    url: https://docs.gravatar.com/api/
+    url: https://docs.gravatar.com/rest-api/
   - type: OpenAPI
     url: https://api.gravatar.com/v3/openapi
   - type: GettingStarted
     url: https://docs.gravatar.com/rest/getting-started/
   - type: Authentication
     url: https://docs.gravatar.com/rest/getting-started/#authentication
-  - type: Pricing
-    url: https://docs.gravatar.com/general/pricing/
-  - type: Status
-    url: http://status.automattic.com/9931/136545/Gravatar
-  - type: GitHubOrganization
-    url: https://github.com/Automattic/gravatar
-  - type: AndroidSDK
-    url: https://docs.gravatar.com/sdk/android/
-  - type: iOSSDK
-    url: https://docs.gravatar.com/sdk/ios/
-  - type: APIExplorer
-    url: https://docs.gravatar.com/api/explorer/
-  - type: TermsOfService
-    url: https://gravatar.com/tos
-  - type: PrivacyPolicy
-    url: https://gravatar.com/privacy-policy
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/rate-limits/rate-limits.yml
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/plans/plans.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/finops/finops.yml
+  - url: graphql/gravatar-graphql.md
+    type: GraphQL
+common:
+- type: Portal
+  url: https://docs.gravatar.com/
+- type: Documentation
+  url: https://docs.gravatar.com/api/
+- type: OpenAPI
+  url: https://api.gravatar.com/v3/openapi
+- type: GettingStarted
+  url: https://docs.gravatar.com/rest/getting-started/
+- type: Authentication
+  url: https://docs.gravatar.com/rest/getting-started/#authentication
+- type: Pricing
+  url: https://docs.gravatar.com/general/pricing/
+- type: Status
+  url: http://status.automattic.com/9931/136545/Gravatar
+- type: GitHubOrganization
+  url: https://github.com/Automattic/gravatar
+- type: AndroidSDK
+  url: https://docs.gravatar.com/sdk/android/
+- type: iOSSDK
+  url: https://docs.gravatar.com/sdk/ios/
+- type: APIExplorer
+  url: https://docs.gravatar.com/api/explorer/
+- type: TermsOfService
+  url: https://gravatar.com/tos
+- type: PrivacyPolicy
+  url: https://gravatar.com/privacy-policy
 maintainers:
-  - FN: Kin Lane
-    X-twitter: kinlane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  X-twitter: kinlane
+  email: kin@apievangelist.com

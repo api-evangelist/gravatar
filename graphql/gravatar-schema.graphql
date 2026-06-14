@@ -1,0 +1,208 @@
+# Gravatar GraphQL Schema
+# Conceptual SDL derived from Gravatar REST API v3
+# Source: https://docs.gravatar.com/rest-api/ and https://api.gravatar.com/v3/openapi
+# No native GraphQL endpoint exists; this models the REST types for tooling purposes.
+
+"""
+A person's full name components as provided in their Gravatar profile.
+"""
+type Name {
+  formatted: String
+  familyName: String
+  givenName: String
+  middleName: String
+  honorificPrefix: String
+  honorificSuffix: String
+}
+
+"""
+An email address associated with a Gravatar profile.
+"""
+type Email {
+  value: String!
+  primary: Boolean
+}
+
+"""
+A linked external account (e.g., Twitter, GitHub, LinkedIn) on a Gravatar profile.
+"""
+type Account {
+  domain: String!
+  display: String
+  url: String
+  username: String
+  verified: Boolean
+  shortname: String
+}
+
+"""
+A URL entry attached to a Gravatar profile (personal site, blog, etc.).
+"""
+type ProfileUrl {
+  value: String!
+  title: String
+}
+
+"""
+A photo or avatar image attached to a Gravatar profile.
+"""
+type Photo {
+  value: String!
+  type: String
+}
+
+"""
+An interest or hobby tag on a Gravatar profile.
+"""
+type Interest {
+  id: Int
+  name: String!
+  slug: String
+}
+
+"""
+An instant messaging handle on a Gravatar profile.
+"""
+type Im {
+  type: String!
+  value: String!
+}
+
+"""
+A phone number on a Gravatar profile.
+"""
+type PhoneNumber {
+  type: String!
+  value: String!
+}
+
+"""
+A verified account link with proof of ownership.
+"""
+type VerifiedAccount {
+  service: String!
+  handle: String!
+  url: String
+  verified: Boolean!
+}
+
+"""
+A complete Gravatar user profile, as returned by the REST API v3 profile endpoint.
+Identified by SHA256 hash of the canonical email address.
+"""
+type Profile {
+  """SHA256 hash of the canonical (lowercased, trimmed) email address."""
+  hash: String!
+  """Display name shown on the profile."""
+  displayName: String
+  """Preferred username / profile slug."""
+  preferredUsername: String
+  """URL of the user's primary thumbnail avatar image."""
+  thumbnailUrl: String
+  """Public URL of the Gravatar profile page."""
+  profileUrl: String
+  """Short bio or about-me text."""
+  aboutMe: String
+  """Current location string."""
+  currentLocation: String
+  """Job title."""
+  jobTitle: String
+  """Company or organization name."""
+  company: String
+  """Pronouns string (e.g., "they/them")."""
+  pronouns: String
+  """Structured name object."""
+  name: Name
+  """Email addresses on the profile."""
+  emails: [Email!]
+  """Linked external accounts."""
+  accounts: [Account!]
+  """Linked URLs (personal sites, blogs, etc.)."""
+  urls: [ProfileUrl!]
+  """Photos attached to the profile."""
+  photos: [Photo!]
+  """Interests / hobby tags."""
+  interests: [Interest!]
+  """Instant messaging handles."""
+  ims: [Im!]
+  """Phone numbers."""
+  phoneNumbers: [PhoneNumber!]
+  """Cryptographically verified account links."""
+  verifiedAccounts: [VerifiedAccount!]
+  """ISO 8601 timestamp of last profile update."""
+  lastProfileEdit: String
+  """Whether the profile is hidden/private."""
+  isOrganization: Boolean
+}
+
+"""
+A Gravatar avatar image record, as managed via the REST API v3 avatar endpoints.
+"""
+type Avatar {
+  """SHA256 hash identifying this avatar."""
+  hash: String!
+  """CDN URL of the avatar image."""
+  url: String!
+  """Alternative text description of the avatar image."""
+  altText: String
+  """Content rating: g, pg, r, or x."""
+  rating: String
+  """ISO 8601 timestamp of last update."""
+  updated: String
+  """Whether this is the profile's default/selected avatar."""
+  isDefault: Boolean
+}
+
+"""
+A compact hover card summary, suitable for inline profile previews.
+"""
+type HoverCard {
+  """Display name shown in the hover card."""
+  displayName: String
+  """SHA256 hash of the email address."""
+  hash: String
+  """Avatar image URL."""
+  avatarUrl: String
+  """Job title."""
+  jobTitle: String
+  """Company or organization."""
+  company: String
+  """Location string."""
+  location: String
+  """Short description / bio."""
+  description: String
+  """Whether the profile has verified accounts."""
+  verified: Boolean
+  """Link to the full Gravatar profile."""
+  profileUrl: String
+}
+
+"""
+Root query type for the Gravatar conceptual GraphQL schema.
+All lookups are keyed by SHA256 hash of the canonical email address.
+"""
+type Query {
+  """
+  Fetch a full Gravatar profile by SHA256 email hash or profile identifier.
+  Corresponds to GET /v3/profiles/{profileIdentifier}
+  """
+  profile(hash: String!): Profile
+
+  """
+  Fetch a hover card summary for a profile by SHA256 email hash.
+  Corresponds to GET /v3/profiles/{profileIdentifier}?fields=hover_card
+  """
+  hoverCard(hash: String!): HoverCard
+
+  """
+  List avatars associated with the authenticated user.
+  Corresponds to GET /v3/me/avatars (requires Bearer token).
+  """
+  avatars: [Avatar!]
+
+  """
+  Fetch a single avatar by its hash identifier.
+  Corresponds to GET /v3/me/avatars/{imageKey}
+  """
+  avatar(hash: String!): Avatar
+}
