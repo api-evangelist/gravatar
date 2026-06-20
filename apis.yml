@@ -6,7 +6,7 @@ description: Gravatar (Globally Recognized Avatar) is a service that provides un
   and identity data using a REST API with API key or OAuth authentication. The service
   offers both a public avatar CDN (no auth required) and a REST API (v3) for profiles,
   avatar management, QR codes, and verified account lookups.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -26,7 +26,7 @@ apis:
   description: Public CDN-based API for fetching user avatars by SHA256 email hash.
     Supports image size customization, default image fallbacks, and content rating
     filters. Avatar requests do not count against rate limits.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
   tags:
@@ -44,7 +44,7 @@ apis:
     QR codes, and verified account lookups by SHA256 email hash or profile slug. Supports
     API key (Bearer token) and WordPress OAuth2 authentication. Unauthenticated requests
     are limited to 100/hour; authenticated requests receive 1,000/hour.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.gravatar.com/rest-api/
   baseURL: https://api.gravatar.com/v3
   tags:
