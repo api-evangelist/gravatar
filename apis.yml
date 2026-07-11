@@ -71,6 +71,10 @@ apis:
   - url: graphql/gravatar-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/gravatar-domain-security.yml
+- type: Authentication
+  url: authentication/gravatar-authentication.yml
 - type: OAuthScopes
   url: scopes/gravatar-scopes.yml
 - type: Portal

@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/openapi.json
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - implicit
+schemes:
+- name: apiKey
+  type: http
+  scheme: bearer
+  description: Bearer token to authenticate the request. Full profile information is only available
+    in authenticated requests.
+  sources:
+  - openapi/openapi.json
+- name: oauth
+  type: oauth2
+  flows:
+  - flow: implicit
+    authorizationUrl: https://public-api.wordpress.com/oauth2/authorize
+    scopes: 0
+  description: WordPress OAuth token to authenticate the request.
+  sources:
+  - openapi/openapi.json
