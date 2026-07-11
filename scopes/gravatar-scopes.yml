@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: searched
+source: openapi/openapi.json
+docs: https://docs.gravatar.com/api/oauth/
+schemes:
+- name: oauth
+  source: openapi/openapi.json
+  flows:
+  - flow: implicit
+    authorizationUrl: https://public-api.wordpress.com/oauth2/authorize
+  description: WordPress OAuth token to authenticate the request.
+scopes:
+- scope: auth
+  description: Required to work with any Gravatar endpoints; allows the user to authenticate.
+  sources:
+  - https://docs.gravatar.com/api/oauth/
+- scope: gravatar-profile:read
+  description: Allows access to the user's profile information, like avatar, about
+    info, or display name.
+  sources:
+  - https://docs.gravatar.com/api/oauth/
+- scope: gravatar-profile:manage
+  description: Allows editing the user's profile information, like avatar, about
+    info, or display name.
+  sources:
+  - https://docs.gravatar.com/api/oauth/

@@ -71,6 +71,8 @@ apis:
   - url: graphql/gravatar-graphql.md
     type: GraphQL
 common:
+- type: OAuthScopes
+  url: scopes/gravatar-scopes.yml
 - type: Portal
   url: https://docs.gravatar.com/
 - type: Documentation
@@ -97,6 +99,8 @@ common:
   url: https://gravatar.com/tos
 - type: PrivacyPolicy
   url: https://gravatar.com/privacy-policy
+- url: https://blog.gravatar.com/feed/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   X-twitter: kinlane
