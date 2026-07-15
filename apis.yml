@@ -71,6 +71,8 @@ apis:
   - url: graphql/gravatar-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/gravatar-agentic-access.yml
 - type: DomainSecurity
   url: security/gravatar-domain-security.yml
 - type: Authentication
