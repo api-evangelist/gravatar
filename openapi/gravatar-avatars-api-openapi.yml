@@ -1,0 +1,327 @@
+openapi: 3.1.0
+info:
+  title: Gravatar Public avatars API
+  version: 3.0.0
+  description: Gravatar's public API endpoints
+  contact:
+    name: Gravatar
+    url: https://gravatar.com
+servers:
+- url: https://api.gravatar.com/v3
+  description: Production server
+tags:
+- name: avatars
+  description: Operations about user avatars
+paths:
+  /me/avatars:
+    get:
+      summary: List avatars
+      description: Retrieves a list of available avatars for the authenticated user.
+      tags:
+      - avatars
+      operationId: getAvatars
+      security:
+      - oauth: []
+      parameters:
+      - name: selected_email_hash
+        in: query
+        description: The SHA256 hash of the email address used to determine which avatar is selected. The 'selected' attribute in the avatar list will be set to 'true' for the avatar associated with this email.
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          description: Successful retrieval of avatars
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Avatar'
+        '401':
+          description: Not Authorized
+          $ref: '#/components/responses/not_authorized'
+        '403':
+          description: Insufficient Scope
+          $ref: '#/components/responses/insufficient_scope'
+    post:
+      summary: Upload new avatar image
+      description: Uploads a new avatar image for the authenticated user.
+      tags:
+      - avatars
+      operationId: uploadAvatar
+      security:
+      - oauth: []
+      parameters:
+      - name: selected_email_hash
+        in: query
+        description: The SHA256 hash of email. If provided, the uploaded image will be selected as the avatar for this email.
+        required: false
+        schema:
+          type: string
+      - name: select_avatar
+        in: query
+        description: Determines if the uploaded image should be set as the avatar for the email. If not passed, the image is only selected as the email's avatar if no previous avatar has been set. Accepts '1'/'true' to always set the avatar or '0'/'false' to never set the avatar.
+        required: false
+        schema:
+          type:
+          - boolean
+          - 'null'
+          default: null
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: The avatar image file
+              required:
+              - image
+      responses:
+        '200':
+          description: Avatar uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Avatar'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                uncropped_image:
+                  value:
+                    error: Only square images are accepted
+                    code: uncropped_image
+                unsupported_image:
+                  value:
+                    error: Unsupported image type
+                    code: unsupported_image
+        '401':
+          description: Not Authorized
+          $ref: '#/components/responses/not_authorized'
+        '403':
+          description: Insufficient Scope
+          $ref: '#/components/responses/insufficient_scope'
+  /me/avatars/{imageHash}:
+    delete:
+      summary: Delete avatar
+      description: Deletes a specific avatar for the authenticated user.
+      tags:
+      - avatars
+      operationId: deleteAvatar
+      security:
+      - oauth: []
+      parameters:
+      - name: imageHash
+        in: path
+        required: true
+        description: The hash of the avatar to delete.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Avatar deleted successfully
+        '401':
+          description: Not Authorized
+          $ref: '#/components/responses/not_authorized'
+        '403':
+          description: Insufficient Scope
+          $ref: '#/components/responses/insufficient_scope'
+        '404':
+          description: Avatar not found
+    patch:
+      summary: Update avatar data
+      description: Updates the avatar data for a given avatar for the authenticated user.
+      tags:
+      - avatars
+      operationId: updateAvatar
+      security:
+      - oauth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The avatar data to update. Partial updates are supported, so only the provided fields will be updated.
+              properties:
+                rating:
+                  description: Rating associated with the image.
+                  $ref: '#/components/schemas/Rating'
+                alt_text:
+                  type: string
+                  description: Alternative text description of the image.
+                  examples:
+                  - Gravatar's avatar image. Gravatar is a service for providing globally unique avatars.
+              required: []
+      parameters:
+      - name: imageHash
+        in: path
+        required: true
+        description: The hash of the avatar to update.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Avatar updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Avatar'
+        '401':
+          description: Not Authorized
+          $ref: '#/components/responses/not_authorized'
+        '403':
+          description: Insufficient Scope
+          $ref: '#/components/responses/insufficient_scope'
+        '404':
+          description: Avatar not found
+  /me/avatars/{imageId}/email:
+    post:
+      summary: Set avatar for the hashed email
+      description: Sets the avatar for the provided email hash.
+      tags:
+      - avatars
+      parameters:
+      - name: imageId
+        in: path
+        description: Image ID of the avatar to set as the provided hashed email avatar.
+        required: true
+        schema:
+          type: string
+      operationId: setEmailAvatar
+      requestBody:
+        description: Avatar selection details
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email_hash:
+                  type: string
+                  description: The email SHA256 hash to set the avatar for.
+                  examples:
+                  - 31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66
+              required:
+              - email_hash
+      security:
+      - oauth: []
+      responses:
+        '200':
+          description: Avatar successfully set
+        '401':
+          description: Not Authorized
+          $ref: '#/components/responses/not_authorized'
+        '403':
+          description: Insufficient Scope
+          $ref: '#/components/responses/insufficient_scope'
+components:
+  schemas:
+    Rating:
+      type: string
+      description: Rating associated with the image.
+      enum:
+      - G
+      - PG
+      - R
+      - X
+    Error:
+      type: object
+      description: An error response from the API.
+      properties:
+        error:
+          type: string
+          description: The error message
+        code:
+          type: string
+          description: The error code for the error message
+      required:
+      - error
+    Avatar:
+      type: object
+      description: An avatar that the user has already uploaded to their Gravatar account.
+      required:
+      - image_id
+      - image_url
+      - rating
+      - updated_date
+      - alt_text
+      properties:
+        image_id:
+          type: string
+          description: Unique identifier for the image.
+          examples:
+          - 38be15a98a2bbc40df69172a2a8349
+        image_url:
+          type: string
+          description: Image URL
+          format: uri
+          examples:
+          - https://gravatar.com/userimage/252014526/d38bele5a98a2bbc40df69172a2a8348.jpeg
+        rating:
+          type: string
+          description: Rating associated with the image.
+          enum:
+          - G
+          - PG
+          - R
+          - X
+        alt_text:
+          type: string
+          description: Alternative text description of the image.
+          examples:
+          - Gravatar's avatar image. Gravatar is a service for providing globally unique avatars.
+        selected:
+          type: boolean
+          description: Whether the image is currently selected as the provided selected email's avatar.
+          examples:
+          - true
+        updated_date:
+          type: string
+          format: date-time
+          description: Date and time when the image was last updated.
+          pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$
+          examples:
+          - '2021-10-01T12:00:00Z'
+  responses:
+    insufficient_scope:
+      description: Insufficient Scope
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            insufficient_scope:
+              value:
+                code: insufficient_scope
+                error: The provided token does not contain the required scope for this request.
+    not_authorized:
+      description: Not Authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            unauthorized:
+              value:
+                error: You are not authorized to perform this action
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: bearer
+      description: Bearer token to authenticate the request. Full profile information is only available in authenticated requests.
+    oauth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://public-api.wordpress.com/oauth2/authorize
+          scopes: {}
+      description: WordPress OAuth token to authenticate the request.
