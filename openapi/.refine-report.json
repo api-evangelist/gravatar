@@ -1,0 +1,20 @@
+{
+  "provider": "gravatar",
+  "sources": [
+    "gravatar-avatars-api-openapi.yml",
+    "gravatar-experimental-api-openapi.yml",
+    "gravatar-profiles-api-openapi.yml",
+    "gravatar-qr-code-api-openapi.yml"
+  ],
+  "outputs": [
+    "gravatar-avatars-api-openapi.yml",
+    "gravatar-experimental-api-openapi.yml",
+    "gravatar-profiles-api-openapi.yml",
+    "gravatar-qr-code-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
