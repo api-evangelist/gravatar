@@ -1,0 +1,320 @@
+{
+  "item": [
+    {
+      "id": "b09ef7f9-181e-4778-af39-f0c6828fc088",
+      "name": "qr-code",
+      "description": {
+        "content": "Operations about QR codes",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9232432f-fe0d-42a0-a52e-90fc35b3f1f4",
+          "name": "Get QR code for an email address' profile",
+          "request": {
+            "name": "Get QR code for an email address' profile",
+            "description": {
+              "content": "Returns a QR code for an email address by the given SHA256 hash.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "qr-code",
+                ":sha256_hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "The size of the QR code."
+                },
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<string>",
+                  "description": "The version of the QR code."
+                },
+                {
+                  "disabled": false,
+                  "key": "utm_medium",
+                  "value": "<string>",
+                  "description": "The medium of the UTM parameters. Appended to the URL in the QR code."
+                },
+                {
+                  "disabled": false,
+                  "key": "utm_campaign",
+                  "value": "<string>",
+                  "description": "The campaign of the UTM parameters. Appended to the URL in the QR code."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of center icon to display ('user' for avatar, 'gravatar' for logo, 'none' for no icon)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sha256_hash",
+                  "description": "(Required) The SHA256 hash of the email address or profile URL slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10934464-4456-4f0c-8f7d-39b0dd2b87e2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr-code",
+                    ":sha256_hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sha256_hash",
+                      "description": "(Required) The SHA256 hash of the email address or profile URL slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The status of the profile. Possible values: 'enabled', 'disabled', 'not-found'",
+                  "key": "X-Gravatar-Profile-Status",
+                  "value": "enabled"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2da6ce69-f534-4e35-8931-c53afd24c953",
+              "name": "Rate Limit Exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr-code",
+                    ":sha256_hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sha256_hash",
+                      "description": "(Required) The SHA256 hash of the email address or profile URL slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The number of allowed requests in the current period.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "8006"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of remaining requests in the current period.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "8006"
+                },
+                {
+                  "disabled": false,
+                  "description": "The time at which the current rate limit period resets, in Unix timestamp format.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "8006"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Rate limit exceeded\",\n  \"code\": \"rate_limit_exceeded\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87e3f6bf-5d31-4502-9b32-69b428263ab1",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr-code",
+                    ":sha256_hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_medium",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "utm_campaign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sha256_hash",
+                      "description": "(Required) The SHA256 hash of the email address or profile URL slug."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gravatar.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "88b3e875-b6e7-4765-b27c-717eaada153f",
+    "name": "Gravatar Public avatars qr-code API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Gravatar's public API endpoints\n\nContact Support:\n Name: Gravatar",
+      "type": "text/plain"
+    }
+  }
+}

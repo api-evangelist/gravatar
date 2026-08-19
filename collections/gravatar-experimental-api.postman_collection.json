@@ -1,0 +1,546 @@
+{
+  "item": [
+    {
+      "id": "7a487167-22d0-4bd5-80f3-c3a6bbb12186",
+      "name": "experimental",
+      "description": {
+        "content": "Experimental operations that might be subject to change. Use with caution.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fef330a2-81c6-424d-b58b-23ef4c923fd5",
+          "name": "Search for profiles by verified account username",
+          "request": {
+            "name": "Search for profiles by verified account username",
+            "description": {
+              "content": "Searches Gravatar profiles that have a verified account with the given username. Optionally filter by the service (e.g., 'github', 'twitter'). See `/verified-accounts/services` for supported ID values. Results are paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profiles",
+                "search",
+                "by-verified-account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) The username used on the verified third-party service."
+                },
+                {
+                  "disabled": false,
+                  "key": "service",
+                  "value": "<string>",
+                  "description": "The service to limit search to (e.g., 'github', 'twitter'). See `/verified-accounts/services` for supported IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number of results to retrieve."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "20",
+                  "description": "Number of results per page. Defaults to 20, maximum 50."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4cd7e534-4aee-4c6a-b7a2-fb4852afe2b0",
+              "name": "List of matching profiles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    "search",
+                    "by-verified-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "service",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The number of allowed requests in the current period.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "3948"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of remaining requests in the current period.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "3948"
+                },
+                {
+                  "disabled": false,
+                  "description": "The time at which the current rate limit period resets, in Unix timestamp format.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "3948"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"profiles\": [\n    {\n      \"hash\": \"31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66\",\n      \"display_name\": \"Alex Morgan\",\n      \"profile_url\": \"https://gravatar.com/example\",\n      \"avatar_url\": \"https://0.gravatar.com/avatar/33252cd1f33526af53580fcb1736172f06e6716f32afdd1be19ec3096d15dea5\",\n      \"avatar_alt_text\": \"Alex Morgan's avatar image. Alex is smiling and standing in beside a large dog who is looking up at Alex.\",\n      \"location\": \"New York, USA\",\n      \"description\": \"I like playing hide and seek.\",\n      \"job_title\": \"Landscape Architect\",\n      \"company\": \"ACME Corp\",\n      \"verified_accounts\": [\n        {\n          \"service_type\": \"tumblr\",\n          \"service_label\": \"Tumblr\",\n          \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n          \"url\": \"https://example.tumblr.com/\",\n          \"is_hidden\": false\n        },\n        {\n          \"service_type\": \"tumblr\",\n          \"service_label\": \"Tumblr\",\n          \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n          \"url\": \"https://example.tumblr.com/\",\n          \"is_hidden\": false\n        }\n      ],\n      \"pronunciation\": \"Al-ex Mor-gan\",\n      \"pronouns\": \"She/They\",\n      \"user_id\": 1234567890,\n      \"user_login\": \"alex\",\n      \"timezone\": \"Europe/Bratislava\",\n      \"languages\": [\n        {\n          \"code\": \"en\",\n          \"name\": \"English\",\n          \"is_primary\": true,\n          \"order\": 1\n        },\n        {\n          \"code\": \"en\",\n          \"name\": \"English\",\n          \"is_primary\": true,\n          \"order\": 1\n        }\n      ],\n      \"first_name\": \"Alex\",\n      \"last_name\": \"Morgan\",\n      \"is_organization\": false,\n      \"header_image\": \"url('https://gravatar.com/userimage/209234789/cdebd0ed415kfa2g562ba5c34b1570c2') no-repeat 50% 1% / 100%\",\n      \"hide_default_header_image\": false,\n      \"background_color\": \"rgb(33, 0, 166)\",\n      \"links\": [\n        {\n          \"label\": \"Personal Website\",\n          \"url\": \"https://example.com\"\n        },\n        {\n          \"label\": \"Personal Website\",\n          \"url\": \"https://example.com\"\n        }\n      ],\n      \"interests\": [\n        {\n          \"id\": 1,\n          \"name\": \"photography\",\n          \"slug\": \"1-photography\"\n        },\n        {\n          \"id\": 1,\n          \"name\": \"photography\",\n          \"slug\": \"1-photography\"\n        }\n      ],\n      \"payments\": {\n        \"links\": [\n          {\n            \"label\": \"Personal Website\",\n            \"url\": \"https://example.com\"\n          },\n          {\n            \"label\": \"Personal Website\",\n            \"url\": \"https://example.com\"\n          }\n        ],\n        \"crypto_wallets\": [\n          {\n            \"label\": \"ETH\",\n            \"address\": \"0xABC123...\"\n          },\n          {\n            \"label\": \"ETH\",\n            \"address\": \"0xABC123...\"\n          }\n        ]\n      },\n      \"contact_info\": {\n        \"home_phone\": \"+1-555-555-0100\",\n        \"work_phone\": \"+1-555-555-0101\",\n        \"cell_phone\": \"+1-555-555-0102\",\n        \"email\": \"alex@example.com\",\n        \"contact_form\": \"https://example.com/contact-me\",\n        \"calendar\": \"https://example.com/calendar\"\n      },\n      \"gallery\": [\n        {\n          \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n          \"alt_text\": \"A beautiful sunset\"\n        },\n        {\n          \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n          \"alt_text\": \"A beautiful sunset\"\n        }\n      ],\n      \"number_verified_accounts\": 3,\n      \"last_profile_edit\": \"2021-10-01T12:00:00Z\",\n      \"registration_date\": \"2021-10-01T12:00:00Z\",\n      \"section_visibility\": {\n        \"hidden_contact_info\": true,\n        \"hidden_feeds\": true,\n        \"hidden_links\": true,\n        \"hidden_interests\": false,\n        \"hidden_wallet\": false,\n        \"hidden_photos\": false,\n        \"hidden_verified_accounts\": true\n      }\n    },\n    {\n      \"hash\": \"31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66\",\n      \"display_name\": \"Alex Morgan\",\n      \"profile_url\": \"https://gravatar.com/example\",\n      \"avatar_url\": \"https://0.gravatar.com/avatar/33252cd1f33526af53580fcb1736172f06e6716f32afdd1be19ec3096d15dea5\",\n      \"avatar_alt_text\": \"Alex Morgan's avatar image. Alex is smiling and standing in beside a large dog who is looking up at Alex.\",\n      \"location\": \"New York, USA\",\n      \"description\": \"I like playing hide and seek.\",\n      \"job_title\": \"Landscape Architect\",\n      \"company\": \"ACME Corp\",\n      \"verified_accounts\": [\n        {\n          \"service_type\": \"tumblr\",\n          \"service_label\": \"Tumblr\",\n          \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n          \"url\": \"https://example.tumblr.com/\",\n          \"is_hidden\": false\n        },\n        {\n          \"service_type\": \"tumblr\",\n          \"service_label\": \"Tumblr\",\n          \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n          \"url\": \"https://example.tumblr.com/\",\n          \"is_hidden\": false\n        }\n      ],\n      \"pronunciation\": \"Al-ex Mor-gan\",\n      \"pronouns\": \"She/They\",\n      \"user_id\": 1234567890,\n      \"user_login\": \"alex\",\n      \"timezone\": \"Europe/Bratislava\",\n      \"languages\": [\n        {\n          \"code\": \"en\",\n          \"name\": \"English\",\n          \"is_primary\": true,\n          \"order\": 1\n        },\n        {\n          \"code\": \"en\",\n          \"name\": \"English\",\n          \"is_primary\": true,\n          \"order\": 1\n        }\n      ],\n      \"first_name\": \"Alex\",\n      \"last_name\": \"Morgan\",\n      \"is_organization\": false,\n      \"header_image\": \"url('https://gravatar.com/userimage/209234789/cdebd0ed415kfa2g562ba5c34b1570c2') no-repeat 50% 1% / 100%\",\n      \"hide_default_header_image\": false,\n      \"background_color\": \"rgb(33, 0, 166)\",\n      \"links\": [\n        {\n          \"label\": \"Personal Website\",\n          \"url\": \"https://example.com\"\n        },\n        {\n          \"label\": \"Personal Website\",\n          \"url\": \"https://example.com\"\n        }\n      ],\n      \"interests\": [\n        {\n          \"id\": 1,\n          \"name\": \"photography\",\n          \"slug\": \"1-photography\"\n        },\n        {\n          \"id\": 1,\n          \"name\": \"photography\",\n          \"slug\": \"1-photography\"\n        }\n      ],\n      \"payments\": {\n        \"links\": [\n          {\n            \"label\": \"Personal Website\",\n            \"url\": \"https://example.com\"\n          },\n          {\n            \"label\": \"Personal Website\",\n            \"url\": \"https://example.com\"\n          }\n        ],\n        \"crypto_wallets\": [\n          {\n            \"label\": \"ETH\",\n            \"address\": \"0xABC123...\"\n          },\n          {\n            \"label\": \"ETH\",\n            \"address\": \"0xABC123...\"\n          }\n        ]\n      },\n      \"contact_info\": {\n        \"home_phone\": \"+1-555-555-0100\",\n        \"work_phone\": \"+1-555-555-0101\",\n        \"cell_phone\": \"+1-555-555-0102\",\n        \"email\": \"alex@example.com\",\n        \"contact_form\": \"https://example.com/contact-me\",\n        \"calendar\": \"https://example.com/calendar\"\n      },\n      \"gallery\": [\n        {\n          \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n          \"alt_text\": \"A beautiful sunset\"\n        },\n        {\n          \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n          \"alt_text\": \"A beautiful sunset\"\n        }\n      ],\n      \"number_verified_accounts\": 3,\n      \"last_profile_edit\": \"2021-10-01T12:00:00Z\",\n      \"registration_date\": \"2021-10-01T12:00:00Z\",\n      \"section_visibility\": {\n        \"hidden_contact_info\": true,\n        \"hidden_feeds\": false,\n        \"hidden_links\": false,\n        \"hidden_interests\": false,\n        \"hidden_wallet\": false,\n        \"hidden_photos\": true,\n        \"hidden_verified_accounts\": false\n      }\n    }\n  ],\n  \"total_pages\": 5\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16a323cf-85d6-4df0-94e8-0a49704d24c9",
+              "name": "Missing or invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    "search",
+                    "by-verified-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "service",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54991234-e61e-4d80-a21b-a412c542fc35",
+              "name": "Not Authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    "search",
+                    "by-verified-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "service",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"You are not authorized to perform this action\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bea5d466-97d8-4ddb-9c38-25e05f473dd0",
+              "name": "Rate Limit Exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    "search",
+                    "by-verified-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "service",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The number of allowed requests in the current period.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "3948"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of remaining requests in the current period.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "3948"
+                },
+                {
+                  "disabled": false,
+                  "description": "The time at which the current rate limit period resets, in Unix timestamp format.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "3948"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Rate limit exceeded\",\n  \"code\": \"rate_limit_exceeded\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3259dbe-5141-4439-939d-f30aaef65978",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    "search",
+                    "by-verified-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "service",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "470da4d8-c866-438e-a280-67c8ebec8ff2",
+          "name": "Get list of services supported as verified accounts",
+          "request": {
+            "name": "Get list of services supported as verified accounts",
+            "description": {
+              "content": "Returns the list of verified account services with their ID and human-readable labels.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "verified-accounts",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c277a8f-d78b-443b-8362-fc73cc9fe948",
+              "name": "Supported verified account services",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "verified-accounts",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"services\": [\n    {\n      \"id\": \"github\",\n      \"label\": \"GitHub\"\n    },\n    {\n      \"id\": \"github\",\n      \"label\": \"GitHub\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d978256-4d9c-45d8-8bfd-94a20fee00bc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "verified-accounts",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gravatar.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3ee6b45a-911c-422d-a92e-114a7361a652",
+    "name": "Gravatar Public avatars experimental API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Gravatar's public API endpoints\n\nContact Support:\n Name: Gravatar",
+      "type": "text/plain"
+    }
+  }
+}

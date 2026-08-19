@@ -1,0 +1,1085 @@
+{
+  "item": [
+    {
+      "id": "9b11f28a-36b2-4b7c-8c85-3ca56f240f0e",
+      "name": "profiles",
+      "description": {
+        "content": "Operations about user profiles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "384a57d1-314d-492f-8c80-39f9f010b0d0",
+          "name": "Get profile by identifier",
+          "request": {
+            "name": "Get profile by identifier",
+            "description": {
+              "content": "Returns a profile by the given identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profiles",
+                ":profileIdentifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "profileIdentifier",
+                  "description": "(Required) This can either be an SHA256 hash of an email address or profile URL slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "786ff9c1-df38-46f6-b261-2b42104c7d3b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    ":profileIdentifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "profileIdentifier",
+                      "description": "(Required) This can either be an SHA256 hash of an email address or profile URL slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The number of allowed requests in the current period.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "3826"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of remaining requests in the current period.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "3826"
+                },
+                {
+                  "disabled": false,
+                  "description": "The time at which the current rate limit period resets, in Unix timestamp format.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "3826"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hash\": \"31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66\",\n  \"display_name\": \"Alex Morgan\",\n  \"profile_url\": \"https://gravatar.com/example\",\n  \"avatar_url\": \"https://0.gravatar.com/avatar/33252cd1f33526af53580fcb1736172f06e6716f32afdd1be19ec3096d15dea5\",\n  \"avatar_alt_text\": \"Alex Morgan's avatar image. Alex is smiling and standing in beside a large dog who is looking up at Alex.\",\n  \"location\": \"New York, USA\",\n  \"description\": \"I like playing hide and seek.\",\n  \"job_title\": \"Landscape Architect\",\n  \"company\": \"ACME Corp\",\n  \"verified_accounts\": [\n    {\n      \"service_type\": \"tumblr\",\n      \"service_label\": \"Tumblr\",\n      \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n      \"url\": \"https://example.tumblr.com/\",\n      \"is_hidden\": false\n    },\n    {\n      \"service_type\": \"tumblr\",\n      \"service_label\": \"Tumblr\",\n      \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n      \"url\": \"https://example.tumblr.com/\",\n      \"is_hidden\": false\n    }\n  ],\n  \"pronunciation\": \"Al-ex Mor-gan\",\n  \"pronouns\": \"She/They\",\n  \"user_id\": 1234567890,\n  \"user_login\": \"alex\",\n  \"timezone\": \"Europe/Bratislava\",\n  \"languages\": [\n    {\n      \"code\": \"en\",\n      \"name\": \"English\",\n      \"is_primary\": true,\n      \"order\": 1\n    },\n    {\n      \"code\": \"en\",\n      \"name\": \"English\",\n      \"is_primary\": true,\n      \"order\": 1\n    }\n  ],\n  \"first_name\": \"Alex\",\n  \"last_name\": \"Morgan\",\n  \"is_organization\": false,\n  \"header_image\": \"url('https://gravatar.com/userimage/209234789/cdebd0ed415kfa2g562ba5c34b1570c2') no-repeat 50% 1% / 100%\",\n  \"hide_default_header_image\": false,\n  \"background_color\": \"rgb(33, 0, 166)\",\n  \"links\": [\n    {\n      \"label\": \"Personal Website\",\n      \"url\": \"https://example.com\"\n    },\n    {\n      \"label\": \"Personal Website\",\n      \"url\": \"https://example.com\"\n    }\n  ],\n  \"interests\": [\n    {\n      \"id\": 1,\n      \"name\": \"photography\",\n      \"slug\": \"1-photography\"\n    },\n    {\n      \"id\": 1,\n      \"name\": \"photography\",\n      \"slug\": \"1-photography\"\n    }\n  ],\n  \"payments\": {\n    \"links\": [\n      {\n        \"label\": \"Personal Website\",\n        \"url\": \"https://example.com\"\n      },\n      {\n        \"label\": \"Personal Website\",\n        \"url\": \"https://example.com\"\n      }\n    ],\n    \"crypto_wallets\": [\n      {\n        \"label\": \"ETH\",\n        \"address\": \"0xABC123...\"\n      },\n      {\n        \"label\": \"ETH\",\n        \"address\": \"0xABC123...\"\n      }\n    ]\n  },\n  \"contact_info\": {\n    \"home_phone\": \"+1-555-555-0100\",\n    \"work_phone\": \"+1-555-555-0101\",\n    \"cell_phone\": \"+1-555-555-0102\",\n    \"email\": \"alex@example.com\",\n    \"contact_form\": \"https://example.com/contact-me\",\n    \"calendar\": \"https://example.com/calendar\"\n  },\n  \"gallery\": [\n    {\n      \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n      \"alt_text\": \"A beautiful sunset\"\n    },\n    {\n      \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n      \"alt_text\": \"A beautiful sunset\"\n    }\n  ],\n  \"number_verified_accounts\": 3,\n  \"last_profile_edit\": \"2021-10-01T12:00:00Z\",\n  \"registration_date\": \"2021-10-01T12:00:00Z\",\n  \"section_visibility\": {\n    \"hidden_contact_info\": false,\n    \"hidden_feeds\": true,\n    \"hidden_links\": true,\n    \"hidden_interests\": true,\n    \"hidden_wallet\": true,\n    \"hidden_photos\": false,\n    \"hidden_verified_accounts\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a77f5c2c-c49b-470f-bbd7-c491b4d65775",
+              "name": "Profile not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    ":profileIdentifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "profileIdentifier",
+                      "description": "(Required) This can either be an SHA256 hash of an email address or profile URL slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The number of allowed requests in the current period.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "3826"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of remaining requests in the current period.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "3826"
+                },
+                {
+                  "disabled": false,
+                  "description": "The time at which the current rate limit period resets, in Unix timestamp format.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "3826"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "96259290-4cd9-4abf-a6fa-fb9bee368ae5",
+              "name": "Rate Limit Exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    ":profileIdentifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "profileIdentifier",
+                      "description": "(Required) This can either be an SHA256 hash of an email address or profile URL slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The number of allowed requests in the current period.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "3826"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of remaining requests in the current period.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "3826"
+                },
+                {
+                  "disabled": false,
+                  "description": "The time at which the current rate limit period resets, in Unix timestamp format.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "3826"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Rate limit exceeded\",\n  \"code\": \"rate_limit_exceeded\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67f4041c-b766-43fa-b625-7d7245978efe",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profiles",
+                    ":profileIdentifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "profileIdentifier",
+                      "description": "(Required) This can either be an SHA256 hash of an email address or profile URL slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "298a640e-d677-49bc-ad03-1ad8f5992bb8",
+          "name": "Get profile information for the authenticated user",
+          "request": {
+            "name": "Get profile information for the authenticated user",
+            "description": {
+              "content": "Returns the information available for the authenticated user. It's equivalent to the full profile information available in the `/profiles/{profileIdentifier}` endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "authUrl",
+                  "value": "https://public-api.wordpress.com/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cc3da864-1c49-49cf-8e50-7fa67f92c4e6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hash\": \"31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66\",\n  \"display_name\": \"Alex Morgan\",\n  \"profile_url\": \"https://gravatar.com/example\",\n  \"avatar_url\": \"https://0.gravatar.com/avatar/33252cd1f33526af53580fcb1736172f06e6716f32afdd1be19ec3096d15dea5\",\n  \"avatar_alt_text\": \"Alex Morgan's avatar image. Alex is smiling and standing in beside a large dog who is looking up at Alex.\",\n  \"location\": \"New York, USA\",\n  \"description\": \"I like playing hide and seek.\",\n  \"job_title\": \"Landscape Architect\",\n  \"company\": \"ACME Corp\",\n  \"verified_accounts\": [\n    {\n      \"service_type\": \"tumblr\",\n      \"service_label\": \"Tumblr\",\n      \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n      \"url\": \"https://example.tumblr.com/\",\n      \"is_hidden\": false\n    },\n    {\n      \"service_type\": \"tumblr\",\n      \"service_label\": \"Tumblr\",\n      \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n      \"url\": \"https://example.tumblr.com/\",\n      \"is_hidden\": false\n    }\n  ],\n  \"pronunciation\": \"Al-ex Mor-gan\",\n  \"pronouns\": \"She/They\",\n  \"user_id\": 1234567890,\n  \"user_login\": \"alex\",\n  \"timezone\": \"Europe/Bratislava\",\n  \"languages\": [\n    {\n      \"code\": \"en\",\n      \"name\": \"English\",\n      \"is_primary\": true,\n      \"order\": 1\n    },\n    {\n      \"code\": \"en\",\n      \"name\": \"English\",\n      \"is_primary\": true,\n      \"order\": 1\n    }\n  ],\n  \"first_name\": \"Alex\",\n  \"last_name\": \"Morgan\",\n  \"is_organization\": false,\n  \"header_image\": \"url('https://gravatar.com/userimage/209234789/cdebd0ed415kfa2g562ba5c34b1570c2') no-repeat 50% 1% / 100%\",\n  \"hide_default_header_image\": false,\n  \"background_color\": \"rgb(33, 0, 166)\",\n  \"links\": [\n    {\n      \"label\": \"Personal Website\",\n      \"url\": \"https://example.com\"\n    },\n    {\n      \"label\": \"Personal Website\",\n      \"url\": \"https://example.com\"\n    }\n  ],\n  \"interests\": [\n    {\n      \"id\": 1,\n      \"name\": \"photography\",\n      \"slug\": \"1-photography\"\n    },\n    {\n      \"id\": 1,\n      \"name\": \"photography\",\n      \"slug\": \"1-photography\"\n    }\n  ],\n  \"payments\": {\n    \"links\": [\n      {\n        \"label\": \"Personal Website\",\n        \"url\": \"https://example.com\"\n      },\n      {\n        \"label\": \"Personal Website\",\n        \"url\": \"https://example.com\"\n      }\n    ],\n    \"crypto_wallets\": [\n      {\n        \"label\": \"ETH\",\n        \"address\": \"0xABC123...\"\n      },\n      {\n        \"label\": \"ETH\",\n        \"address\": \"0xABC123...\"\n      }\n    ]\n  },\n  \"contact_info\": {\n    \"home_phone\": \"+1-555-555-0100\",\n    \"work_phone\": \"+1-555-555-0101\",\n    \"cell_phone\": \"+1-555-555-0102\",\n    \"email\": \"alex@example.com\",\n    \"contact_form\": \"https://example.com/contact-me\",\n    \"calendar\": \"https://example.com/calendar\"\n  },\n  \"gallery\": [\n    {\n      \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n      \"alt_text\": \"A beautiful sunset\"\n    },\n    {\n      \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n      \"alt_text\": \"A beautiful sunset\"\n    }\n  ],\n  \"number_verified_accounts\": 3,\n  \"last_profile_edit\": \"2021-10-01T12:00:00Z\",\n  \"registration_date\": \"2021-10-01T12:00:00Z\",\n  \"section_visibility\": {\n    \"hidden_contact_info\": false,\n    \"hidden_feeds\": true,\n    \"hidden_links\": true,\n    \"hidden_interests\": true,\n    \"hidden_wallet\": true,\n    \"hidden_photos\": false,\n    \"hidden_verified_accounts\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d01b4652-bb46-44e5-922f-77bbe4f4a778",
+              "name": "Not Authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"You are not authorized to perform this action\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0b52f08-f5d6-4a6d-9e4c-a16618cd7ced",
+              "name": "Insufficient Scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"insufficient_scope\",\n  \"error\": \"The provided token does not contain the required scope for this request.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebabcabd-6ff4-4fbe-9dc9-efc9222ee963",
+              "name": "Profile is disabled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Profile is disabled\",\n  \"code\": \"disabled\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c455b6b-e40e-4e40-9cec-56ef78cdf0ed",
+          "name": "Update profile information for the authenticated user",
+          "request": {
+            "name": "Update profile information for the authenticated user",
+            "description": {
+              "content": "Updates the profile information for the authenticated user. Only a subset of `Profile` fields are available for update. Partial updates are supported, so only the provided fields will be updated. To unset a field, set it explicitly to an empty string.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "authUrl",
+                  "value": "https://public-api.wordpress.com/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"pronunciation\": \"<string>\",\n  \"pronouns\": \"<string>\",\n  \"location\": \"<string>\",\n  \"job_title\": \"<string>\",\n  \"company\": \"<string>\",\n  \"cell_phone\": \"<string>\",\n  \"contact_email\": \"<string>\",\n  \"hidden_contact_info\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e2616f3-6339-4f32-af53-ad8e29dc8b7d",
+              "name": "Profile updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Alex\",\n  \"last_name\": \"Morgan\",\n  \"display_name\": \"Alex Morgan\",\n  \"description\": \"I like playing hide and seek.\",\n  \"pronunciation\": \"Al-ex Mor-gan\",\n  \"pronouns\": \"She/They\",\n  \"location\": \"New York, USA\",\n  \"job_title\": \"Landscape Architect\",\n  \"company\": \"ACME Corp\",\n  \"cell_phone\": \"+1234567890\",\n  \"contact_email\": \"alex@example.com\",\n  \"hidden_contact_info\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hash\": \"31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66\",\n  \"display_name\": \"Alex Morgan\",\n  \"profile_url\": \"https://gravatar.com/example\",\n  \"avatar_url\": \"https://0.gravatar.com/avatar/33252cd1f33526af53580fcb1736172f06e6716f32afdd1be19ec3096d15dea5\",\n  \"avatar_alt_text\": \"Alex Morgan's avatar image. Alex is smiling and standing in beside a large dog who is looking up at Alex.\",\n  \"location\": \"New York, USA\",\n  \"description\": \"I like playing hide and seek.\",\n  \"job_title\": \"Landscape Architect\",\n  \"company\": \"ACME Corp\",\n  \"verified_accounts\": [\n    {\n      \"service_type\": \"tumblr\",\n      \"service_label\": \"Tumblr\",\n      \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n      \"url\": \"https://example.tumblr.com/\",\n      \"is_hidden\": false\n    },\n    {\n      \"service_type\": \"tumblr\",\n      \"service_label\": \"Tumblr\",\n      \"service_icon\": \"https://gravatar.com/icons/tumblr-alt.svg\",\n      \"url\": \"https://example.tumblr.com/\",\n      \"is_hidden\": false\n    }\n  ],\n  \"pronunciation\": \"Al-ex Mor-gan\",\n  \"pronouns\": \"She/They\",\n  \"user_id\": 1234567890,\n  \"user_login\": \"alex\",\n  \"timezone\": \"Europe/Bratislava\",\n  \"languages\": [\n    {\n      \"code\": \"en\",\n      \"name\": \"English\",\n      \"is_primary\": true,\n      \"order\": 1\n    },\n    {\n      \"code\": \"en\",\n      \"name\": \"English\",\n      \"is_primary\": true,\n      \"order\": 1\n    }\n  ],\n  \"first_name\": \"Alex\",\n  \"last_name\": \"Morgan\",\n  \"is_organization\": false,\n  \"header_image\": \"url('https://gravatar.com/userimage/209234789/cdebd0ed415kfa2g562ba5c34b1570c2') no-repeat 50% 1% / 100%\",\n  \"hide_default_header_image\": false,\n  \"background_color\": \"rgb(33, 0, 166)\",\n  \"links\": [\n    {\n      \"label\": \"Personal Website\",\n      \"url\": \"https://example.com\"\n    },\n    {\n      \"label\": \"Personal Website\",\n      \"url\": \"https://example.com\"\n    }\n  ],\n  \"interests\": [\n    {\n      \"id\": 1,\n      \"name\": \"photography\",\n      \"slug\": \"1-photography\"\n    },\n    {\n      \"id\": 1,\n      \"name\": \"photography\",\n      \"slug\": \"1-photography\"\n    }\n  ],\n  \"payments\": {\n    \"links\": [\n      {\n        \"label\": \"Personal Website\",\n        \"url\": \"https://example.com\"\n      },\n      {\n        \"label\": \"Personal Website\",\n        \"url\": \"https://example.com\"\n      }\n    ],\n    \"crypto_wallets\": [\n      {\n        \"label\": \"ETH\",\n        \"address\": \"0xABC123...\"\n      },\n      {\n        \"label\": \"ETH\",\n        \"address\": \"0xABC123...\"\n      }\n    ]\n  },\n  \"contact_info\": {\n    \"home_phone\": \"+1-555-555-0100\",\n    \"work_phone\": \"+1-555-555-0101\",\n    \"cell_phone\": \"+1-555-555-0102\",\n    \"email\": \"alex@example.com\",\n    \"contact_form\": \"https://example.com/contact-me\",\n    \"calendar\": \"https://example.com/calendar\"\n  },\n  \"gallery\": [\n    {\n      \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n      \"alt_text\": \"A beautiful sunset\"\n    },\n    {\n      \"url\": \"https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a\",\n      \"alt_text\": \"A beautiful sunset\"\n    }\n  ],\n  \"number_verified_accounts\": 3,\n  \"last_profile_edit\": \"2021-10-01T12:00:00Z\",\n  \"registration_date\": \"2021-10-01T12:00:00Z\",\n  \"section_visibility\": {\n    \"hidden_contact_info\": false,\n    \"hidden_feeds\": true,\n    \"hidden_links\": true,\n    \"hidden_interests\": true,\n    \"hidden_wallet\": true,\n    \"hidden_photos\": false,\n    \"hidden_verified_accounts\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75898e16-562b-40d6-9d91-0b2f9d82710f",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Alex\",\n  \"last_name\": \"Morgan\",\n  \"display_name\": \"Alex Morgan\",\n  \"description\": \"I like playing hide and seek.\",\n  \"pronunciation\": \"Al-ex Mor-gan\",\n  \"pronouns\": \"She/They\",\n  \"location\": \"New York, USA\",\n  \"job_title\": \"Landscape Architect\",\n  \"company\": \"ACME Corp\",\n  \"cell_phone\": \"+1234567890\",\n  \"contact_email\": \"alex@example.com\",\n  \"hidden_contact_info\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20a38f45-e8c8-4881-a057-0973dd962d48",
+              "name": "Not Authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Alex\",\n  \"last_name\": \"Morgan\",\n  \"display_name\": \"Alex Morgan\",\n  \"description\": \"I like playing hide and seek.\",\n  \"pronunciation\": \"Al-ex Mor-gan\",\n  \"pronouns\": \"She/They\",\n  \"location\": \"New York, USA\",\n  \"job_title\": \"Landscape Architect\",\n  \"company\": \"ACME Corp\",\n  \"cell_phone\": \"+1234567890\",\n  \"contact_email\": \"alex@example.com\",\n  \"hidden_contact_info\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"You are not authorized to perform this action\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d27b5a4d-1853-40b7-9cdb-e8161ad0d96c",
+              "name": "Insufficient Scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Alex\",\n  \"last_name\": \"Morgan\",\n  \"display_name\": \"Alex Morgan\",\n  \"description\": \"I like playing hide and seek.\",\n  \"pronunciation\": \"Al-ex Mor-gan\",\n  \"pronouns\": \"She/They\",\n  \"location\": \"New York, USA\",\n  \"job_title\": \"Landscape Architect\",\n  \"company\": \"ACME Corp\",\n  \"cell_phone\": \"+1234567890\",\n  \"contact_email\": \"alex@example.com\",\n  \"hidden_contact_info\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"insufficient_scope\",\n  \"error\": \"The provided token does not contain the required scope for this request.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fe6e27e-13a0-422b-9ec5-874a00908b06",
+              "name": "Profile is disabled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Alex\",\n  \"last_name\": \"Morgan\",\n  \"display_name\": \"Alex Morgan\",\n  \"description\": \"I like playing hide and seek.\",\n  \"pronunciation\": \"Al-ex Mor-gan\",\n  \"pronouns\": \"She/They\",\n  \"location\": \"New York, USA\",\n  \"job_title\": \"Landscape Architect\",\n  \"company\": \"ACME Corp\",\n  \"cell_phone\": \"+1234567890\",\n  \"contact_email\": \"alex@example.com\",\n  \"hidden_contact_info\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Profile is disabled\",\n  \"code\": \"disabled\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95d02133-f9e2-41a3-b284-da8fd8c5752b",
+          "name": "Check if the email is associated with the authenticated user",
+          "request": {
+            "name": "Check if the email is associated with the authenticated user",
+            "description": {
+              "content": "Checks if the provided email address is associated with the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "associated-email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email_hash",
+                  "value": "<string>",
+                  "description": "(Required) The hash of the email address to check."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "authUrl",
+                  "value": "https://public-api.wordpress.com/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "22070dcf-f9d9-4bcf-a37e-1380315f5b21",
+              "name": "The email is associated with the authenticated user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "associated-email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email_hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"associated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "453fa06e-aceb-4aff-871c-283ebba2454f",
+              "name": "Not Authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "associated-email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email_hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"You are not authorized to perform this action\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95b073c2-d503-405e-93e6-4ad4789a6bc3",
+              "name": "Insufficient Scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "associated-email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email_hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"insufficient_scope\",\n  \"error\": \"The provided token does not contain the required scope for this request.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gravatar.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b44c6d1c-0785-4873-8602-32521cf7c189",
+    "name": "Gravatar Public avatars profiles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Gravatar's public API endpoints\n\nContact Support:\n Name: Gravatar",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gravatar Public avatars profiles API",
+    "version": "3.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get profile by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gravatar.com/v3/profiles/:profileIdentifier",
+            "params": [
+              {
+                "name": "profileIdentifier",
+                "value": "",
+                "type": "path",
+                "description": "This can either be an SHA256 hash of an email address or profile URL slug."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a profile by the given identifier."
+        },
+        {
+          "info": {
+            "name": "Get profile information for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gravatar.com/v3/me/profile",
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://public-api.wordpress.com/oauth2/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns the information available for the authenticated user. It's equivalent to the full profile information available in the `/profiles/{profileIdentifier}` endpoint."
+        },
+        {
+          "info": {
+            "name": "Update profile information for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.gravatar.com/v3/me/profile",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://public-api.wordpress.com/oauth2/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the profile information for the authenticated user. Only a subset of `Profile` fields are available for update. Partial updates are supported, so only the provided fields will be updated. To unset a field, set it explicitly to an empty string."
+        },
+        {
+          "info": {
+            "name": "Check if the email is associated with the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gravatar.com/v3/me/associated-email",
+            "params": [
+              {
+                "name": "email_hash",
+                "value": "",
+                "type": "query",
+                "description": "The hash of the email address to check."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://public-api.wordpress.com/oauth2/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Checks if the provided email address is associated with the authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

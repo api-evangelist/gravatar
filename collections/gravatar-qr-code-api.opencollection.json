@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gravatar Public avatars qr-code API",
+    "version": "3.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "qr-code",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get QR code for an email address' profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gravatar.com/v3/qr-code/:sha256_hash",
+            "params": [
+              {
+                "name": "sha256_hash",
+                "value": "",
+                "type": "path",
+                "description": "The SHA256 hash of the email address or profile URL slug."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the QR code."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "The version of the QR code."
+              },
+              {
+                "name": "utm_medium",
+                "value": "",
+                "type": "query",
+                "description": "The medium of the UTM parameters. Appended to the URL in the QR code."
+              },
+              {
+                "name": "utm_campaign",
+                "value": "",
+                "type": "query",
+                "description": "The campaign of the UTM parameters. Appended to the URL in the QR code."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of center icon to display ('user' for avatar, 'gravatar' for logo, 'none' for no icon)."
+              }
+            ]
+          },
+          "docs": "Returns a QR code for an email address by the given SHA256 hash."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

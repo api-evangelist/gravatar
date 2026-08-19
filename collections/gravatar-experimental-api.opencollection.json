@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gravatar Public avatars experimental API",
+    "version": "3.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "experimental",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for profiles by verified account username",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gravatar.com/v3/profiles/search/by-verified-account",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "The username used on the verified third-party service."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "The service to limit search to (e.g., 'github', 'twitter'). See `/verified-accounts/services` for supported IDs."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of results to retrieve."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Defaults to 20, maximum 50."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Searches Gravatar profiles that have a verified account with the given username. Optionally filter by the service (e.g., 'github', 'twitter'). See `/verified-accounts/services` for supported ID values. Results are paginated."
+        },
+        {
+          "info": {
+            "name": "Get list of services supported as verified accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gravatar.com/v3/verified-accounts/services"
+          },
+          "docs": "Returns the list of verified account services with their ID and human-readable labels."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,177 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gravatar Public avatars API",
+    "version": "3.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "avatars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List avatars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gravatar.com/v3/me/avatars",
+            "params": [
+              {
+                "name": "selected_email_hash",
+                "value": "",
+                "type": "query",
+                "description": "The SHA256 hash of the email address used to determine which avatar is selected. The 'selected' attribute in the avatar list will be set to 'true' for the avatar associated with this email."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://public-api.wordpress.com/oauth2/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieves a list of available avatars for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Upload new avatar image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gravatar.com/v3/me/avatars",
+            "params": [
+              {
+                "name": "selected_email_hash",
+                "value": "",
+                "type": "query",
+                "description": "The SHA256 hash of email. If provided, the uploaded image will be selected as the avatar for this email."
+              },
+              {
+                "name": "select_avatar",
+                "value": "",
+                "type": "query",
+                "description": "Determines if the uploaded image should be set as the avatar for the email. If not passed, the image is only selected as the email's avatar if no previous avatar has been set. Accepts '1'/'true' to always set the avatar or '0'/'false' to never set the avatar."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "image",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://public-api.wordpress.com/oauth2/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Uploads a new avatar image for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Update avatar data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.gravatar.com/v3/me/avatars/:imageHash",
+            "params": [
+              {
+                "name": "imageHash",
+                "value": "",
+                "type": "path",
+                "description": "The hash of the avatar to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://public-api.wordpress.com/oauth2/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the avatar data for a given avatar for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Delete avatar",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.gravatar.com/v3/me/avatars/:imageHash",
+            "params": [
+              {
+                "name": "imageHash",
+                "value": "",
+                "type": "path",
+                "description": "The hash of the avatar to delete."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://public-api.wordpress.com/oauth2/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes a specific avatar for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Set avatar for the hashed email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gravatar.com/v3/me/avatars/:imageId/email",
+            "params": [
+              {
+                "name": "imageId",
+                "value": "",
+                "type": "path",
+                "description": "Image ID of the avatar to set as the provided hashed email avatar."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://public-api.wordpress.com/oauth2/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Sets the avatar for the provided email hash."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

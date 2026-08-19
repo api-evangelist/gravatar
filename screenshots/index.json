@@ -6,5 +6,14 @@
     "source_type": "Portal",
     "file": "gravatar-2026-06-20T182344.png",
     "bytes": 117813
+  },
+  {
+    "repo": "gravatar",
+    "captured_at": "2026-08-17T083454",
+    "source_url": "https://gravatar.com",
+    "source_type": "root-domain",
+    "file": "gravatar-2026-08-17T083454.png",
+    "bytes": 177946,
+    "capture": "playwright-local"
   }
 ]
