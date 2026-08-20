@@ -30,6 +30,14 @@ tags:
 - Identity
 - Profiles
 - Social
+- Image
+- GraphQL
+- REST
+tags_raw:
+- Avatars
+- Identity
+- Profiles
+- Social
 - Images
 - GraphQL
 - REST
@@ -40,6 +48,8 @@ apis:
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
   tags:
+  - Avatars
+  tags_raw:
   - avatars
   properties:
   - type: OpenAPI
@@ -69,6 +79,8 @@ apis:
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
   tags:
+  - Experimental
+  tags_raw:
   - experimental
   properties:
   - type: OpenAPI
@@ -98,6 +110,8 @@ apis:
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
   tags:
+  - Profiles
+  tags_raw:
   - profiles
   properties:
   - type: OpenAPI
@@ -127,6 +141,8 @@ apis:
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
   tags:
+  - QR Code
+  tags_raw:
   - qr-code
   properties:
   - type: OpenAPI
