@@ -60,7 +60,7 @@ apis:
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
   tags:
-  - avatars
+  - Avatars
   tags_raw:
   - avatars
   properties:
@@ -153,7 +153,7 @@ apis:
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
   tags:
-  - qr-code
+  - QR Code
   tags_raw:
   - qr-code
   properties:
