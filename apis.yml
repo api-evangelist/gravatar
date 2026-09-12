@@ -179,6 +179,8 @@ apis:
   - type: GraphQL
     url: graphql/gravatar-graphql.md
 common:
+- type: Website
+  url: https://www.gravatar.com/
 - type: AgenticAccess
   url: agentic-access/gravatar-agentic-access.yml
 - type: DomainSecurity
