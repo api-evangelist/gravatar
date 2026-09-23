@@ -1,10 +1,7 @@
 {
   "provider": "gravatar",
   "sources": [
-    "gravatar-avatars-api-openapi.yml",
-    "gravatar-experimental-api-openapi.yml",
-    "gravatar-profiles-api-openapi.yml",
-    "gravatar-qr-code-api-openapi.yml"
+    "_original/openapi.json"
   ],
   "outputs": [
     "gravatar-avatars-api-openapi.yml",
@@ -15,6 +12,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "gravatar-avatars-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gravatar-experimental-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gravatar-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gravatar-qr-code-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

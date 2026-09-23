@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Gravatar Public avatars qr-code API
+  title: Gravatar Public Qr Code API
   version: 3.0.0
   description: Gravatar's public API endpoints
   contact:
@@ -10,7 +10,7 @@ servers:
 - url: https://api.gravatar.com/v3
   description: Production server
 tags:
-- name: qr-code
+- name: qr code
   description: Operations about QR codes
 paths:
   /qr-code/{sha256_hash}:
@@ -18,7 +18,7 @@ paths:
       summary: Get QR code for an email address' profile
       description: Returns a QR code for an email address by the given SHA256 hash.
       tags:
-      - qr-code
+      - qr code
       operationId: getQrCodeBySha256Hash
       parameters:
       - name: sha256_hash

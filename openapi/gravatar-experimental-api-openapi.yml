@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Gravatar Public avatars experimental API
+  title: Gravatar Public Experimental API
   version: 3.0.0
   description: Gravatar's public API endpoints
   contact:
@@ -10,7 +10,7 @@ servers:
 - url: https://api.gravatar.com/v3
   description: Production server
 tags:
-- name: experimental
+- name: Experimental
   description: Experimental operations that might be subject to change. Use with caution.
 paths:
   /profiles/search/by-verified-account:
@@ -18,7 +18,7 @@ paths:
       summary: Search for profiles by verified account username
       description: Searches Gravatar profiles that have a verified account with the given username. Optionally filter by the service (e.g., 'github', 'twitter'). See `/verified-accounts/services` for supported ID values. Results are paginated.
       tags:
-      - experimental
+      - Experimental
       operationId: searchProfilesByVerifiedAccount
       parameters:
       - name: username
@@ -96,7 +96,7 @@ paths:
       summary: Get list of services supported as verified accounts
       description: Returns the list of verified account services with their ID and human-readable labels.
       tags:
-      - experimental
+      - Experimental
       operationId: getVerifiedAccountServices
       responses:
         '200':
@@ -146,138 +146,25 @@ paths:
         '500':
           description: Internal server error
 components:
-  headers:
-    X-RateLimit-Remaining:
-      description: The number of remaining requests in the current period.
-      schema:
-        type: integer
-    X-RateLimit-Reset:
-      description: The time at which the current rate limit period resets, in Unix timestamp format.
-      schema:
-        type: integer
-    X-RateLimit-Limit:
-      description: The number of allowed requests in the current period.
-      schema:
-        type: integer
   schemas:
-    Error:
+    Link:
       type: object
-      description: An error response from the API.
-      properties:
-        error:
-          type: string
-          description: The error message
-        code:
-          type: string
-          description: The error code for the error message
+      description: A link the user has added to their profile.
       required:
-      - error
-    GalleryImage:
-      type: object
-      description: A gallery image a user has uploaded.
-      required:
+      - label
       - url
       properties:
+        label:
+          type: string
+          description: The label for the link.
+          examples:
+          - Personal Website
         url:
           type: string
-          description: The URL to the image.
           format: uri
+          description: The URL to the link.
           examples:
-          - https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a
-        alt_text:
-          type: string
-          description: The image alt text.
-          examples:
-          - A beautiful sunset
-    VerifiedAccount:
-      type: object
-      description: A verified account on a user's profile.
-      required:
-      - service_type
-      - service_label
-      - service_icon
-      - url
-      - is_hidden
-      properties:
-        service_type:
-          type: string
-          description: The type of the service.
-          examples:
-          - tumblr
-        service_label:
-          type: string
-          description: The name of the service.
-          examples:
-          - Tumblr
-        service_icon:
-          type: string
-          description: The URL to the service's icon.
-          format: uri
-          examples:
-          - https://gravatar.com/icons/tumblr-alt.svg
-        url:
-          type: string
-          description: The URL to the user's profile on the service.
-          format: uri
-          examples:
-          - https://example.tumblr.com/
-        is_hidden:
-          type: boolean
-          description: Whether the verified account is hidden from the user's profile.
-          examples:
-          - false
-    Language:
-      type: object
-      description: The languages the user knows. This is only provided in authenticated API requests.
-      required:
-      - code
-      - name
-      - is_primary
-      - order
-      properties:
-        code:
-          type: string
-          description: The language code.
-          examples:
-          - en
-        name:
-          type: string
-          description: The language name.
-          examples:
-          - English
-        is_primary:
-          type: boolean
-          description: Whether the language is the user's primary language.
-          examples:
-          - true
-        order:
-          type: integer
-          description: The order of the language in the user's profile.
-          examples:
-          - 1
-    Interest:
-      type: object
-      description: An interest the user has added to their profile.
-      required:
-      - id
-      - name
-      - slug
-      properties:
-        id:
-          type: integer
-          description: The unique identifier for the interest.
-          examples:
-          - 1
-        name:
-          type: string
-          description: The name of the interest as originally defined (most often in English).
-          examples:
-          - photography
-        slug:
-          type: string
-          description: The slug representing the interest by combining id and its normalized name.
-          examples:
-          - 1-photography
+          - https://example.com
     Profile:
       type: object
       description: A user's profile information.
@@ -527,6 +414,72 @@ components:
             hidden_verified_accounts:
               type: boolean
               description: Whether the user's verified accounts section is hidden.
+    VerifiedAccount:
+      type: object
+      description: A verified account on a user's profile.
+      required:
+      - service_type
+      - service_label
+      - service_icon
+      - url
+      - is_hidden
+      properties:
+        service_type:
+          type: string
+          description: The type of the service.
+          examples:
+          - tumblr
+        service_label:
+          type: string
+          description: The name of the service.
+          examples:
+          - Tumblr
+        service_icon:
+          type: string
+          description: The URL to the service's icon.
+          format: uri
+          examples:
+          - https://gravatar.com/icons/tumblr-alt.svg
+        url:
+          type: string
+          description: The URL to the user's profile on the service.
+          format: uri
+          examples:
+          - https://example.tumblr.com/
+        is_hidden:
+          type: boolean
+          description: Whether the verified account is hidden from the user's profile.
+          examples:
+          - false
+    Error:
+      type: object
+      description: An error response from the API.
+      properties:
+        error:
+          type: string
+          description: The error message
+        code:
+          type: string
+          description: The error code for the error message
+      required:
+      - error
+    GalleryImage:
+      type: object
+      description: A gallery image a user has uploaded.
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          description: The URL to the image.
+          format: uri
+          examples:
+          - https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a
+        alt_text:
+          type: string
+          description: The image alt text.
+          examples:
+          - A beautiful sunset
     CryptoWalletAddress:
       type: object
       description: A crypto currency wallet address the user accepts.
@@ -544,24 +497,58 @@ components:
           description: The wallet address for the crypto currency.
           examples:
           - 0xABC123...
-    Link:
+    Language:
       type: object
-      description: A link the user has added to their profile.
+      description: The languages the user knows. This is only provided in authenticated API requests.
       required:
-      - label
-      - url
+      - code
+      - name
+      - is_primary
+      - order
       properties:
-        label:
+        code:
           type: string
-          description: The label for the link.
+          description: The language code.
           examples:
-          - Personal Website
-        url:
+          - en
+        name:
           type: string
-          format: uri
-          description: The URL to the link.
+          description: The language name.
           examples:
-          - https://example.com
+          - English
+        is_primary:
+          type: boolean
+          description: Whether the language is the user's primary language.
+          examples:
+          - true
+        order:
+          type: integer
+          description: The order of the language in the user's profile.
+          examples:
+          - 1
+    Interest:
+      type: object
+      description: An interest the user has added to their profile.
+      required:
+      - id
+      - name
+      - slug
+      properties:
+        id:
+          type: integer
+          description: The unique identifier for the interest.
+          examples:
+          - 1
+        name:
+          type: string
+          description: The name of the interest as originally defined (most often in English).
+          examples:
+          - photography
+        slug:
+          type: string
+          description: The slug representing the interest by combining id and its normalized name.
+          examples:
+          - 1-photography
   responses:
     not_authorized:
       description: Not Authorized
@@ -591,6 +578,19 @@ components:
               value:
                 error: Rate limit exceeded
                 code: rate_limit_exceeded
+  headers:
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period.
+      schema:
+        type: integer
+    X-RateLimit-Reset:
+      description: The time at which the current rate limit period resets, in Unix timestamp format.
+      schema:
+        type: integer
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period.
+      schema:
+        type: integer
   securitySchemes:
     apiKey:
       type: http
