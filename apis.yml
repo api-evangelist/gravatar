@@ -55,7 +55,7 @@ tags_raw:
 - REST
 apis:
 - aid: gravatar:gravatar-avatars-api
-  name: Gravatar avatars API
+  name: Gravatar Avatars API
   description: Operations about user avatars
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
@@ -83,10 +83,8 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/finops/finops.yml
-  - type: GraphQL
-    url: graphql/gravatar-graphql.md
 - aid: gravatar:gravatar-experimental-api
-  name: Gravatar experimental API
+  name: Gravatar Experimental API
   description: Experimental operations that might be subject to change. Use with caution.
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
@@ -114,10 +112,8 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/finops/finops.yml
-  - type: GraphQL
-    url: graphql/gravatar-graphql.md
 - aid: gravatar:gravatar-profiles-api
-  name: Gravatar profiles API
+  name: Gravatar Profiles API
   description: Operations about user profiles
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
@@ -145,10 +141,8 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/finops/finops.yml
-  - type: GraphQL
-    url: graphql/gravatar-graphql.md
 - aid: gravatar:gravatar-qr-code-api
-  name: Gravatar qr-code API
+  name: Gravatar Qr Code API
   description: Operations about QR codes
   humanURL: https://docs.gravatar.com/api/avatars/
   baseURL: https://0.gravatar.com
@@ -176,8 +170,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/finops/finops.yml
-  - type: GraphQL
-    url: graphql/gravatar-graphql.md
 common:
 - type: Website
   url: https://www.gravatar.com/
