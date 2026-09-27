@@ -225,16 +225,6 @@ paths:
           $ref: '#/components/responses/insufficient_scope'
 components:
   responses:
-    not_authorized:
-      description: Not Authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            unauthorized:
-              value:
-                error: You are not authorized to perform this action
     insufficient_scope:
       description: Insufficient Scope
       content:
@@ -246,6 +236,16 @@ components:
               value:
                 code: insufficient_scope
                 error: The provided token does not contain the required scope for this request.
+    not_authorized:
+      description: Not Authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            unauthorized:
+              value:
+                error: You are not authorized to perform this action
   schemas:
     Error:
       type: object

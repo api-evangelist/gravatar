@@ -230,24 +230,93 @@ paths:
           $ref: '#/components/responses/insufficient_scope'
 components:
   schemas:
-    Link:
+    GalleryImage:
       type: object
-      description: A link the user has added to their profile.
+      description: A gallery image a user has uploaded.
       required:
-      - label
       - url
       properties:
-        label:
-          type: string
-          description: The label for the link.
-          examples:
-          - Personal Website
         url:
           type: string
+          description: The URL to the image.
           format: uri
-          description: The URL to the link.
           examples:
-          - https://example.com
+          - https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a
+        alt_text:
+          type: string
+          description: The image alt text.
+          examples:
+          - A beautiful sunset
+    AssociatedResponse:
+      type: object
+      required:
+      - associated
+      properties:
+        associated:
+          type: boolean
+          description: Whether the entity is associated with the account.
+          examples:
+          - true
+    Interest:
+      type: object
+      description: An interest the user has added to their profile.
+      required:
+      - id
+      - name
+      - slug
+      properties:
+        id:
+          type: integer
+          description: The unique identifier for the interest.
+          examples:
+          - 1
+        name:
+          type: string
+          description: The name of the interest as originally defined (most often in English).
+          examples:
+          - photography
+        slug:
+          type: string
+          description: The slug representing the interest by combining id and its normalized name.
+          examples:
+          - 1-photography
+    VerifiedAccount:
+      type: object
+      description: A verified account on a user's profile.
+      required:
+      - service_type
+      - service_label
+      - service_icon
+      - url
+      - is_hidden
+      properties:
+        service_type:
+          type: string
+          description: The type of the service.
+          examples:
+          - tumblr
+        service_label:
+          type: string
+          description: The name of the service.
+          examples:
+          - Tumblr
+        service_icon:
+          type: string
+          description: The URL to the service's icon.
+          format: uri
+          examples:
+          - https://gravatar.com/icons/tumblr-alt.svg
+        url:
+          type: string
+          description: The URL to the user's profile on the service.
+          format: uri
+          examples:
+          - https://example.tumblr.com/
+        is_hidden:
+          type: boolean
+          description: Whether the verified account is hidden from the user's profile.
+          examples:
+          - false
     Profile:
       type: object
       description: A user's profile information.
@@ -497,53 +566,6 @@ components:
             hidden_verified_accounts:
               type: boolean
               description: Whether the user's verified accounts section is hidden.
-    VerifiedAccount:
-      type: object
-      description: A verified account on a user's profile.
-      required:
-      - service_type
-      - service_label
-      - service_icon
-      - url
-      - is_hidden
-      properties:
-        service_type:
-          type: string
-          description: The type of the service.
-          examples:
-          - tumblr
-        service_label:
-          type: string
-          description: The name of the service.
-          examples:
-          - Tumblr
-        service_icon:
-          type: string
-          description: The URL to the service's icon.
-          format: uri
-          examples:
-          - https://gravatar.com/icons/tumblr-alt.svg
-        url:
-          type: string
-          description: The URL to the user's profile on the service.
-          format: uri
-          examples:
-          - https://example.tumblr.com/
-        is_hidden:
-          type: boolean
-          description: Whether the verified account is hidden from the user's profile.
-          examples:
-          - false
-    AssociatedResponse:
-      type: object
-      required:
-      - associated
-      properties:
-        associated:
-          type: boolean
-          description: Whether the entity is associated with the account.
-          examples:
-          - true
     Error:
       type: object
       description: An error response from the API.
@@ -556,23 +578,24 @@ components:
           description: The error code for the error message
       required:
       - error
-    GalleryImage:
+    Link:
       type: object
-      description: A gallery image a user has uploaded.
+      description: A link the user has added to their profile.
       required:
+      - label
       - url
       properties:
+        label:
+          type: string
+          description: The label for the link.
+          examples:
+          - Personal Website
         url:
           type: string
-          description: The URL to the image.
           format: uri
+          description: The URL to the link.
           examples:
-          - https://0.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a
-        alt_text:
-          type: string
-          description: The image alt text.
-          examples:
-          - A beautiful sunset
+          - https://example.com
     CryptoWalletAddress:
       type: object
       description: A crypto currency wallet address the user accepts.
@@ -619,40 +642,7 @@ components:
           description: The order of the language in the user's profile.
           examples:
           - 1
-    Interest:
-      type: object
-      description: An interest the user has added to their profile.
-      required:
-      - id
-      - name
-      - slug
-      properties:
-        id:
-          type: integer
-          description: The unique identifier for the interest.
-          examples:
-          - 1
-        name:
-          type: string
-          description: The name of the interest as originally defined (most often in English).
-          examples:
-          - photography
-        slug:
-          type: string
-          description: The slug representing the interest by combining id and its normalized name.
-          examples:
-          - 1-photography
   responses:
-    not_authorized:
-      description: Not Authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            unauthorized:
-              value:
-                error: You are not authorized to perform this action
     rate_limit_exceeded:
       description: Rate Limit Exceeded
       headers:
@@ -682,17 +672,27 @@ components:
               value:
                 code: insufficient_scope
                 error: The provided token does not contain the required scope for this request.
+    not_authorized:
+      description: Not Authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            unauthorized:
+              value:
+                error: You are not authorized to perform this action
   headers:
-    X-RateLimit-Remaining:
-      description: The number of remaining requests in the current period.
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period.
       schema:
         type: integer
     X-RateLimit-Reset:
       description: The time at which the current rate limit period resets, in Unix timestamp format.
       schema:
         type: integer
-    X-RateLimit-Limit:
-      description: The number of allowed requests in the current period.
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period.
       schema:
         type: integer
   securitySchemes:
