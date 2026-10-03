@@ -80,6 +80,19 @@ paths:
         '500':
           description: Internal server error
 components:
+  headers:
+    X-RateLimit-Limit:
+      description: The number of allowed requests in the current period.
+      schema:
+        type: integer
+    X-RateLimit-Reset:
+      description: The time at which the current rate limit period resets, in Unix timestamp format.
+      schema:
+        type: integer
+    X-RateLimit-Remaining:
+      description: The number of remaining requests in the current period.
+      schema:
+        type: integer
   responses:
     rate_limit_exceeded:
       description: Rate Limit Exceeded
@@ -99,19 +112,6 @@ components:
               value:
                 error: Rate limit exceeded
                 code: rate_limit_exceeded
-  headers:
-    X-RateLimit-Limit:
-      description: The number of allowed requests in the current period.
-      schema:
-        type: integer
-    X-RateLimit-Reset:
-      description: The time at which the current rate limit period resets, in Unix timestamp format.
-      schema:
-        type: integer
-    X-RateLimit-Remaining:
-      description: The number of remaining requests in the current period.
-      schema:
-        type: integer
   schemas:
     Error:
       type: object
