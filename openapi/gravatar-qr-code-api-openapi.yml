@@ -85,12 +85,12 @@ components:
       description: The number of allowed requests in the current period.
       schema:
         type: integer
-    X-RateLimit-Reset:
-      description: The time at which the current rate limit period resets, in Unix timestamp format.
-      schema:
-        type: integer
     X-RateLimit-Remaining:
       description: The number of remaining requests in the current period.
+      schema:
+        type: integer
+    X-RateLimit-Reset:
+      description: The time at which the current rate limit period resets, in Unix timestamp format.
       schema:
         type: integer
   responses:

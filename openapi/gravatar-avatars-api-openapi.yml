@@ -224,28 +224,6 @@ paths:
           description: Insufficient Scope
           $ref: '#/components/responses/insufficient_scope'
 components:
-  responses:
-    not_authorized:
-      description: Not Authorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            unauthorized:
-              value:
-                error: You are not authorized to perform this action
-    insufficient_scope:
-      description: Insufficient Scope
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            insufficient_scope:
-              value:
-                code: insufficient_scope
-                error: The provided token does not contain the required scope for this request.
   schemas:
     Avatar:
       type: object
@@ -293,6 +271,14 @@ components:
           pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$
           examples:
           - '2021-10-01T12:00:00Z'
+    Rating:
+      type: string
+      description: Rating associated with the image.
+      enum:
+      - G
+      - PG
+      - R
+      - X
     Error:
       type: object
       description: An error response from the API.
@@ -305,14 +291,28 @@ components:
           description: The error code for the error message
       required:
       - error
-    Rating:
-      type: string
-      description: Rating associated with the image.
-      enum:
-      - G
-      - PG
-      - R
-      - X
+  responses:
+    not_authorized:
+      description: Not Authorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            unauthorized:
+              value:
+                error: You are not authorized to perform this action
+    insufficient_scope:
+      description: Insufficient Scope
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            insufficient_scope:
+              value:
+                code: insufficient_scope
+                error: The provided token does not contain the required scope for this request.
   securitySchemes:
     apiKey:
       type: http
