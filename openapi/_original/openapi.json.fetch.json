@@ -1,0 +1,12 @@
+{
+ "url": "https://api.gravatar.com/v3/openapi",
+ "requested_url": "https://api.gravatar.com/v3/openapi",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 30318,
+ "sha256": "afbaed3c5b193f3e56cf739e64dec6d174f4e5cd39bfcc0308b879926a11afd3",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
