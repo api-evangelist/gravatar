@@ -1,4 +1,4 @@
-# Gravatar (gravatar)
+# Gravatar
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,90 +66,182 @@
 
 Gravatar (Globally Recognized Avatar) is a service that provides universally recognized avatars and rich identity profiles tied to email addresses via SHA256 hash. Developers can fetch user avatars, profile information, verified social accounts, and identity data using a REST API with API key or OAuth authentication. The service offers both a public avatar CDN (no auth required) and a REST API (v3) for profiles, avatar management, QR codes, and verified account lookups.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/apis.yml)
+**Areas:** Avatars · Identity · Profiles · Social · Image · GraphQL · REST
 
-## Scope
+## Gravatar on APIs.io
 
-- **Type:** Index
+Everything profiled for Gravatar is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gravatar/](https://apis.io/providers/gravatar/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Avatars
-- Identity
-- Profiles
-- Social
-- Images
-- GraphQL
-- REST
+- [Gravatar Avatars API](https://apis.io/apis/gravatar/gravatar-avatars-api/) — Operations about user avatars
+- [Gravatar Experimental API](https://apis.io/apis/gravatar/gravatar-experimental-api/) — Experimental operations that might be subject to change. Use with caution.
+- [Gravatar Profiles API](https://apis.io/apis/gravatar/gravatar-profiles-api/) — Operations about user profiles
+- [Gravatar Qr Code API](https://apis.io/apis/gravatar/gravatar-qr-code-api/) — Operations about QR codes
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-06-13
-- **Modified:** 2026-06-13
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Gravatar Avatar API
+GraphQL schemas.
 
-Public CDN-based API for fetching user avatars by SHA256 email hash. Supports image size customization, default image fallbacks, and content rating filters. Avatar requests do not count against rate limits.
+- [Moved to /providers/gravatar/](https://apis.io/graphqls/gravatar/gravatar-graphql/)
 
-- **Human URL:** [https://docs.gravatar.com/api/avatars/](https://docs.gravatar.com/api/avatars/)
-- **Base URL:** `https://0.gravatar.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Avatars
-- Images
-- CDN
+- [Gravatar Agentic Access](https://apis.io/agentic-access/gravatar/gravatar-agentic-access/)
 
-#### Properties
+#### JSON Schema (11)
 
-- [Documentation](https://docs.gravatar.com/api/avatars/)
-- [OpenAPI](https://api.gravatar.com/v3/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+The data models the API reads and writes.
 
-### Gravatar REST API
+- [AssociatedResponse](https://apis.io/schemas/gravatar/associatedresponse/)
+- [Avatar](https://apis.io/schemas/gravatar/avatar/)
+- [CryptoWalletAddress](https://apis.io/schemas/gravatar/cryptowalletaddress/)
+- [Error](https://apis.io/schemas/gravatar/error/)
+- [GalleryImage](https://apis.io/schemas/gravatar/galleryimage/)
+- [Interest](https://apis.io/schemas/gravatar/interest/)
+- [Language](https://apis.io/schemas/gravatar/language/)
+- [Link](https://apis.io/schemas/gravatar/link/)
+- [Profile](https://apis.io/schemas/gravatar/profile/)
+- [Rating](https://apis.io/schemas/gravatar/rating/)
+- [VerifiedAccount](https://apis.io/schemas/gravatar/verifiedaccount/)
 
-REST API (v3) for retrieving and managing Gravatar user profiles, avatars, QR codes, and verified account lookups by SHA256 email hash or profile slug. Supports API key (Bearer token) and WordPress OAuth2 authentication. Unauthenticated requests are limited to 100/hour; authenticated requests receive 1,000/hour.
+#### JSON-LD (1)
 
-- **Human URL:** [https://docs.gravatar.com/rest-api/](https://docs.gravatar.com/rest-api/)
-- **Base URL:** `https://api.gravatar.com/v3`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [context Context](https://apis.io/jsonld/gravatar/context/)
 
-- Profiles
-- Avatars
-- Identity
-- Verified Accounts
-- QR Codes
+#### Examples (12)
 
-#### Properties
+Example requests and responses.
 
-- [Documentation](https://docs.gravatar.com/rest-api/)
-- [OpenAPI](https://api.gravatar.com/v3/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Getting Started](https://docs.gravatar.com/rest/getting-started/)
-- [Authentication](https://docs.gravatar.com/rest/getting-started/#authentication)
-- [Rate Limits](https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/rate-limits/rate-limits.yml)
-- [Plans](https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/plans/plans.yml)
-- [Fin Ops](https://raw.githubusercontent.com/api-evangelist/gravatar/refs/heads/main/finops/finops.yml)
-- [Graph Q L](graphql/gravatar-graphql.md)
+- [Associatedemail](https://apis.io/examples/gravatar/associatedEmail/)
+- [Deleteavatar](https://apis.io/examples/gravatar/deleteAvatar/)
+- [Getavatars](https://apis.io/examples/gravatar/getAvatars/)
+- [Getprofile](https://apis.io/examples/gravatar/getProfile/)
+- [Getprofilebyid](https://apis.io/examples/gravatar/getProfileById/)
+- [Getqrcodebysha256Hash](https://apis.io/examples/gravatar/getQrCodeBySha256Hash/)
+- [Getverifiedaccountservices](https://apis.io/examples/gravatar/getVerifiedAccountServices/)
+- [Searchprofilesbyverifiedaccount](https://apis.io/examples/gravatar/searchProfilesByVerifiedAccount/)
+- [Setemailavatar](https://apis.io/examples/gravatar/setEmailAvatar/)
+- [Updateavatar](https://apis.io/examples/gravatar/updateAvatar/)
+- [Updateprofile](https://apis.io/examples/gravatar/updateProfile/)
+- [Uploadavatar](https://apis.io/examples/gravatar/uploadAvatar/)
 
-## Common Properties
+#### Collections (4)
 
-- [Portal](https://docs.gravatar.com/)
+Postman and Open Collection request collections.
+
+- [Gravatar Public avatars API](https://apis.io/collections/gravatar/open-gravatar-avatars-api/)
+- [Gravatar Public avatars experimental API](https://apis.io/collections/gravatar/open-gravatar-experimental-api/)
+- [Gravatar Public avatars profiles API](https://apis.io/collections/gravatar/open-gravatar-profiles-api/)
+- [Gravatar Public avatars qr-code API](https://apis.io/collections/gravatar/open-gravatar-qr-code-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Gravatar — jsonschema rules](https://apis.io/rules/gravatar/gravatar-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gravatar Authentication](https://apis.io/security/gravatar/gravatar-authentication/)
+- [Gravatar Domain Security](https://apis.io/security/gravatar/gravatar-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Gravatar Scopes](https://apis.io/scopes/gravatar/gravatar-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/gravatar/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/gravatar/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/gravatar/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.gravatar.com/)
 - [Documentation](https://docs.gravatar.com/api/)
-- [OpenAPI](https://api.gravatar.com/v3/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Getting Started](https://docs.gravatar.com/rest/getting-started/)
-- [Authentication](https://docs.gravatar.com/rest/getting-started/#authentication)
+- [Getting started](https://docs.gravatar.com/rest/getting-started/)
 - [Pricing](https://docs.gravatar.com/general/pricing/)
-- [Status](http://status.automattic.com/9931/136545/Gravatar)
-- [GitHub Organization](https://github.com/Automattic/gravatar)
-- [Android S D K](https://docs.gravatar.com/sdk/android/)
-- [i O S S D K](https://docs.gravatar.com/sdk/ios/)
-- [A P I Explorer](https://docs.gravatar.com/api/explorer/)
-- [Terms of Service](https://gravatar.com/tos)
-- [Privacy Policy](https://gravatar.com/privacy-policy)
+- [Blog](https://blog.gravatar.com/feed/)
+- [Terms of service](https://gravatar.com/tos)
+- [Privacy policy](https://gravatar.com/privacy-policy)
+- [GitHub](https://github.com/Automattic/gravatar)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 38.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 55.3 |
+| Contract governance | 9.8 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 26.3 |
+
+**Agent readiness 33.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gravatar/](https://apis.io/providers/gravatar/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Gravatar: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gravatar/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
